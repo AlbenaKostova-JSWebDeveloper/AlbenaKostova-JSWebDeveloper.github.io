@@ -1,4 +1,4 @@
-## Personal Portfolio
+## Personal Portfolio | **in development**
 
 # Albena Kostova - JS Web Developer
 
