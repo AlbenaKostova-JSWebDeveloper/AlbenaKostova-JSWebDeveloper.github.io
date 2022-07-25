@@ -1,11 +1,15 @@
-require('dotenv').config();
+import path from 'path';
+import express from 'express';
+import dotenv from 'dotenv'; 
 
-const express = require('express');
+dotenv.config();
+
+
 
 const app = express();
 
 app.get('/', (req, res) => {
-    res.json({mssg: "Welcome to the app"})
+    res.send("Portfolio - BE");
 });
 
 app. listen(process.env.PORT, () => {
