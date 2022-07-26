@@ -4,11 +4,10 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
+const projectRoutes = require('./routes/projectRoutes');
 
 /* express app */
 const app = express();
-
-app.use(express.json());
 
 /* global middleware */
 app.use((req, res, next) => {
@@ -18,9 +17,12 @@ app.use((req, res, next) => {
 });
 
 /* routes */
-app.use('/', (req, res) => {
-    res.send('hello');
-});
+// app.use('/', (req, res) => {
+//     res.json({message: "hello"});
+// });
+
+app.use('/api/projects', projectRoutes);
+
 
 app. listen(process.env.PORT, () => {
     console.log(`Seerver listenning at http://localhost:${process.env.PORT}`);
