@@ -3,9 +3,7 @@ const express = require('express');
 
 const databaseConfig = require('./config/database');
 const expressConfig = require('./config/express');
-
-
-const projectRoutes = require('./routes/projectRoutes');
+const routesConfig = require('./config/routes');
 
 
 start();
@@ -16,9 +14,7 @@ async function start() {
     
     await databaseConfig(app);
     expressConfig(app);
-    
-    /* routes */
-    app.use('/api/projects', projectRoutes);
+    routesConfig(app);       
     
     /* listen for requests */
     app.listen(process.env.PORT, () => {

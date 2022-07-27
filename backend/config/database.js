@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* establish DB connection */
 module.exports = (app) => {
     return new Promise((resolve, reject) => {
-        mongoose.connect(DB_CONNECTION_STRING, {
+        mongoose.connect(process.env.DB_CONNECTION_STRING, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

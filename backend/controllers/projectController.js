@@ -3,12 +3,9 @@ const mongoose = require('mongoose');
 
 // GET all projects
 const getAllProjects = async (req, res) => {
-    // res.json({mssg: 'GET all projects'});
     const projects = await Project.find({}).sort({ createdAt: -1 });
     
     res.status(200).json(projects);
-    // to get all the projects using technology HTML
-    // const projectsTechHTML = await Project.find({ technologies: ['HTML'] });
 };
 
 // GET a single project
