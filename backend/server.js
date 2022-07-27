@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 
-
+const databaseConfig = require('./config/database');
 const expressConfig = require('./config/express');
 
 
@@ -14,6 +14,7 @@ async function start() {
     /* express app */
     const app = express();
     
+    await databaseConfig(app);
     expressConfig(app);
     
     /* routes */
