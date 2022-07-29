@@ -75,7 +75,7 @@ function parseToken(req, res) {
             res.locals.user = userData;
         } catch(err) {
             res.clearCookie(process.env.COOKIE_NAME);
-            res.redirect('/auth/login');        
+            res.redirect('/user/login');        
             return false;
         }        
     }
