@@ -15,7 +15,6 @@ module.exports = (app) => {
                 console.log('Known user', req.user.username);
             }            
         }   
-        console.log('>>> ', req.path, req.method, req.url);     
         
         next();
     });
