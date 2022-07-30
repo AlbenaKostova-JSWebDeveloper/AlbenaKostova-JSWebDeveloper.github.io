@@ -7,8 +7,8 @@ const userService = require('../services/user');
 module.exports = () => (req, res, next) => {
     if (parseToken(req, res)) {
         req.auth = {
-            async register(username, email, password) {
-                const token = await register(username, email, password);
+            async signup(username, email, password) {
+                const token = await signup(username, email, password);
                 res.cookie(process.env.COOKIE_NAME, token);
             },
             async login(username, password) {
@@ -24,7 +24,7 @@ module.exports = () => (req, res, next) => {
     }
 };
 
-async function register(username, email, password) {
+async function signup(username, email, password) {
     
     const existing = await userService.getUserByUsername(username);
     
