@@ -7,7 +7,15 @@ const login = async (req, res) => {
 
 // signup
 const signup = async (req, res) => {
-    res.json({ message: 'signup'});
+    const { username, email, password } = req.body;
+    
+    try {
+        const user = await User.signup(username, email, password);
+        
+        res.status(201).json({ username, user });
+    } catch (err) {
+        res.status(400).json({ error: err.message});
+    }
 };
 
 
