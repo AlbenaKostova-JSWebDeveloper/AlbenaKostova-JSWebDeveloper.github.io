@@ -62,7 +62,7 @@ function generateToken(userData) {
     return jwt.sign({
         _id: userData._id,
         username: userData.username
-    }, process.env.TOKEN_SECRET);
+    }, process.env.TOKEN_SECRET, { expiresIn: '3d' });
 }
 
 function parseToken(req, res) {
