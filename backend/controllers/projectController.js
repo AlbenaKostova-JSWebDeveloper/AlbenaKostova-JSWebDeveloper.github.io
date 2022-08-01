@@ -1,9 +1,11 @@
-const Project = require('../models/ProjectModel');
 const mongoose = require('mongoose');
+const { parseError } = require('../utils/parsers');
+const { getAll, getById, create, update, del } = require('../services/projectService');
+
 
 // GET all projects
 const getAllProjects = async (req, res) => {
-    const projects = await Project.find({}).sort({ createdAt: -1 });
+    const projects = await getAll();
     
     res.status(200).json(projects);
 };
@@ -16,7 +18,7 @@ const getSingleProject = async (req, res) => {
         return res.status(404).json({ error: 'No such project' });
     }
     
-    const project = await Project.findById(id);
+    const project = await getById(id);
     
     if (!project) {
         return res.status(404).json({ error: 'No such project'});
@@ -27,6 +29,7 @@ const getSingleProject = async (req, res) => {
 
 // POST new project / CREATE
 const createProject = async (req, res) => {
+    
     const { title, description, technologies, link, image } = req.body;
     
     let emptyFields = [];
@@ -51,10 +54,12 @@ const createProject = async (req, res) => {
         return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
     }
     
-    // add doc to db
+    const data = {  title, description, technologies, link, image };
+    
     try {
-        const project = await Project.create({ title, description, technologies, link, image });
-        res.status(200).json(project);
+        // add doc to db
+        const project = await create(data);
+        res.status(201).json(project);
     } catch (error) {
         res.status(400).json({ error: error.message});
         console.log(error);
@@ -69,15 +74,13 @@ const updateProject = async (req, res) => {
         return res.status(400).json({ error: 'No such project' });
     }
     
-    const project = await Project.findOneAndUpdate({ _id: id }, {
-        ...req.body
-    });
+    const project = await update(id);
     
     if (!project) {
         return res.status(400).json({ error: 'No such project'});
     }
     
-    res.status(200).json(project);
+    res.status(202).json(project);
 };
 
 // DELETE a project
@@ -88,13 +91,13 @@ const deleteProject = async (req, res) => {
         return res.status(404).json({ error: 'No such project' });
     }
     
-    const project = await Project.findOneAndDelete({ _id: id });
+    const project = await del(id);
     
     if (!project) {
         return res.status(400).json({ error: 'No such project'});
     }
     
-    res.status(200).json(project);
+    res.status(204).json(project);
 };
 
 module.exports = {

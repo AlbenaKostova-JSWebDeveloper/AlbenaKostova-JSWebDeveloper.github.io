@@ -18,6 +18,6 @@ async function start() {
     
     /* listen for requests */
     app.listen(process.env.PORT, () => {
-        console.log(`Seerver listenning at http://localhost:${process.env.PORT}`);
+        console.log(`REST Service is listenning at http://localhost:${process.env.PORT}`);
     });  
 }

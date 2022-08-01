@@ -1,11 +1,13 @@
-const User = require('../models/UserModel');
+const { ConnectionStates } = require('mongoose');
+const Admin = require('../models/AdminModel');
 
 // login
 const login = async (req, res) => {
+    
     const { username, password } = req.body;
     
     try {
-        const user = await User.login(username, password);
+        const user = await Admin.login(username, password);
         
         // token
         
@@ -13,6 +15,9 @@ const login = async (req, res) => {
     } catch (err) {
         res.status(400).json({ error: err.message});
     }
+    console.log({mssg: 'Login'}); 
+    console.log(req.body); 
+    res.json({mssg: 'Login'});
 };
 
 // signup
@@ -20,7 +25,7 @@ const signup = async (req, res) => {
     const { username, email, password } = req.body;    
     
     try {
-        const user = await User.signup(username, email, password);
+        const user = await Admin.signup(username, email, password);
         
         // token
         
