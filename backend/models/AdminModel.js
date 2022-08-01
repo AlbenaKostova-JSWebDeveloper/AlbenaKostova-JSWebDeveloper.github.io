@@ -61,4 +61,4 @@ schema.statics.login = async function (username, password) {
     return user;
 }
 
-module.exports = model('User', schema);
+module.exports = model('Admin', schema);

@@ -1,8 +1,12 @@
-const userRoutes = require('../routes/userRoutes');
+const authRoutes = require('../routes/authRoutes');
 const projectRoutes = require('../routes/projectRoutes');
 
 module.exports = (app) => {
     /* routes */
-    app.use('/api/user', userRoutes);
+    app.get('/', (req, res) => {
+        res.send('REST Service operational.'); // -v 
+    }); 
+    
+    app.use('/api/auth', authRoutes);
     app.use('/api/projects', projectRoutes);
 };
