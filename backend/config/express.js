@@ -1,12 +1,16 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('../middlewares/cors');
+const auth = require('../middlewares/auth');
 
 module.exports = (app) => {
     /* global middlewares */
     app.use('/static', express.static('static'));
     app.use(express.urlencoded({extended: true}));
     
+    
     app.use(cors());
+    app.use(auth(process.env.TOKEN_SECRET));
     app.use(express.json());
     
     app.use((req, res, next) => {
