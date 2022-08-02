@@ -10,8 +10,8 @@ module.exports = (app) => {
     
     
     app.use(cors());
-    app.use(auth(process.env.TOKEN_SECRET));
     app.use(express.json());
+    app.use(auth(process.env.TOKEN_SECRET));
     
     app.use((req, res, next) => {
         if (!req.url.includes('favicon')) {
