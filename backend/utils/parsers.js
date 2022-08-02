@@ -13,7 +13,9 @@ function generateToken(userData) {
 }
 
 function parseToken(req, res) {
-    const token = req.cookies[process.env.COOKIE_NAME];
+    // const token = req.cookies[process.env.COOKIE_NAME];
+    const token = req.headers["x-authorization"];
+
     
     if (token) {
         try{

@@ -11,15 +11,7 @@ const { signup, login } = require('../controllers/authController');
 
 const secret = process.env.TOKEN_SECRET;
 
-module.exports = (secret) => (req, res, next) => {
-    const token = req.headers["x-authorization"];
-    
-    try {
-        
-    } catch (error) {
-        
-    }
-    
+module.exports = (secret) => (req, res, next) => {  
     if (parseToken(req, res)) {
         req.auth = {
             async signup(username, email, password) {
@@ -38,25 +30,3 @@ module.exports = (secret) => (req, res, next) => {
         next();
     }
 };
-
-
-// async function login(username, password) {
-//     const user = await userService.getUserByUsername(username);
-    
-//     if (!user) {
-//         const err = new Error('No such user');
-//         err.type = 'credential';
-//         throw err;
-//     }
-    
-//     const hasMatch = await bcrypt.compare(password, user.hashedPassword);
-    
-//     if (!hasMatch) {
-//         const err = new Error('Incorrect password');
-//         err.type = 'credential';
-//         throw err;
-//     }
-    
-//     return generateToken(user);
-// }
-
