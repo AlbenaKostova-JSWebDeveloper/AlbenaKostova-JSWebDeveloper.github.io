@@ -1,21 +1,34 @@
-const User = require('../models/User');
+const Admin = require('../models/AdminModel');
 
-async function createUser(username, email, hashedPassword) {
+
+async function createAdmin(username, email, hashedPassword) {
+    // check if exists
+    const emailExists = await Admin.findOne({ email });
+    const usernameExists = await Admin.findOne({ username });
     
-    const user = new User({
+    if (emailExists || usernameExists) {
+        const err = new Error('Such user already exists');
+        err.status = 409;
+        throw err;
+    }
+    
+    
+    // compile data
+    const admin = new Admin({
         username, 
         email,
         hashedPassword,
     });
     
-    await user.save();
+    // save data to DB
+    await admin.save();
     
-    return user;
+    return admin;
 }
 
 async function getUserByUsername(username) {
     const pattern = new RegExp(`^${username}$`, 'i');
-    const user = await User.findOne({ username: { $regex: pattern } });
+    const user = await Admin.findOne({ username: { $regex: pattern } });
     console.log(user);
     
     return user;
@@ -23,7 +36,7 @@ async function getUserByUsername(username) {
 
 async function getUserById(id) {
     const pattern = new RegExp(`^${id}$`, 'i');
-    const user = await User.findOne({ _id: { $regex: pattern } });
+    const user = await Admin.findOne({ _id: { $regex: pattern } });
     console.log(user);
     
     return user;
@@ -31,7 +44,7 @@ async function getUserById(id) {
 
 
 module.exports = {
-    createUser,
+    createAdmin,
     getUserByUsername,
     getUserById
 }

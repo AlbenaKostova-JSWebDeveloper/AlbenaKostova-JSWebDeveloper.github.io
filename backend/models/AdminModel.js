@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
 const validator = require('validator');
 
 
@@ -9,35 +8,6 @@ const schema = new Schema({
     hashedPassword: { type: String, required: true },
 });
 
-// static signup method
-schema.statics.signup = async function (username, email, password) {
-    // validations
-    if (!username || !email || !password) {
-        throw new Error('All fields are required');
-    }
-    
-    if (!validator.isEmail(email)) {
-        throw new Error('Please enter a valid email');
-    }
-    
-    if (!validator.isStrongPassword(password)) {
-        throw new Error('The password is not strong enough');
-    }
-    
-    const emailExists = await this.findOne({ email });
-    const usernameExists = await this.findOne({ username });
-    
-    if (emailExists || usernameExists) {
-        throw new Error('Such user already exists');
-    }
-    
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(password, salt);
-    
-    const user = await this.create({ username, email, password: hash });
-    
-    return user;
-}
 
 // static login method
 schema.statics.login = async function (username, password) {
