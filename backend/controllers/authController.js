@@ -76,9 +76,6 @@ async function login (req, res) {
     } catch (err) {
         res.status(400).json({ error: err.message});
     }
-    console.log({mssg: 'Login'}); 
-    console.log(req.body); 
-    res.json({mssg: 'Login'});
 };
 
 
