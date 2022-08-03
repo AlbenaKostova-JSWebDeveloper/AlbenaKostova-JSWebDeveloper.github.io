@@ -12,7 +12,11 @@ async function start() {
     /* express app */
     const app = express();
     
-    await databaseConfig(app);
+    try {
+        await databaseConfig(app);        
+    } catch(err) {
+       conosle.log(`DB ERROR: ${err}`); 
+    }
     expressConfig(app);
     routesConfig(app);       
     
