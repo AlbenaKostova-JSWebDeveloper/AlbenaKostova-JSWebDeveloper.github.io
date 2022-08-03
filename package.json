@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon backend/server",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "sass": "sass frontend/src/sass/main.scss frontend/public/assets/css/styles.css -w"
   },
   "keywords": [
     "JS",
