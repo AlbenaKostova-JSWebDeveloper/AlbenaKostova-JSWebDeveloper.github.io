@@ -1,0 +1,56 @@
+// font sizes
+$base-font-size: 1em;
+$font-size-sm: $base-font-size * 0.75;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;
+
+// spacing
+$base-margin: 0.75rem;
+$base-padding: 0.75rem;
+
+// borders
+$base-border-thickness: 1px;
+$base-border-radius: 20px;
+
+// box-shadow
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, .1);
+
+/* *************************************************************************** */
+
+// theme colors
+$primary: rgb(235, 116, 68);
+$secondary: rgb(34, 32, 19);
+
+$light: rgb(250, 235, 215);
+$dark: rgb(28, 28, 28);
+
+$error: rgb(101, 12, 41);
+$info: rgb(229, 201, 118);
+$success: rgb(28, 102, 102);
+
+$grey-light: rgb(221, 221, 221);
+
+
+// color palette // map
+$colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "error": $error,
+    "info": $info,
+    "blue": #1919e6,
+    "red": #e61919,
+    "yellow": #e6e619,
+    "green": #19e635,
+    "orange": #ffa600,
+    "purple": #9900ff,
+    "gray": #808080,
+    "black": black,
+    "white": white,
+);
+// @debug map-get($colors, "purple"); // getting the purple color from the 'colors' map 
+// @debug map-has-key($colors, "secondary"); // checking if 'colors' map has a key named 'secondary' -> 'true'
+// @debug map-has-key($colors, "tertiary"); // checking if 'colors' map has a key named 'tertiary' -> 'false'
+// @debug map-remove($colors, "primary"); // in the 'colors' map is trying to remove a value with the key of 'primary' -> logs the map after the value is being removed
+// @debug map-merge($colors, ("pink": #ffc0cb)); // in the 'colors' map adds a new key:value pair -> logs the map after the key:value pair is being added
+// we can use these different functions in selectors:
