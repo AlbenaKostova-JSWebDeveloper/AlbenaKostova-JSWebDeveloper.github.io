@@ -1,12 +1,12 @@
 // variables & functions
-@import 'typograaphy';
 @import 'functions';
 @import 'variables';
+@import 'typography';
 
 // base & layout
 @import 'base';
 @import 'breakpoints';
-@import 'grid';
+// @import 'grid';
 
 /* colors */
 @import 'colors';
