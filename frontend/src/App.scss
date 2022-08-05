@@ -9,8 +9,7 @@
     color: whitesmoke;
     text-align: center;
     
-    &-header {
-        background-color: #282c34;
-        
+    &-header, &-footer {
+        text-align: center;        
     }
 }

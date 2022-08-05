@@ -5,9 +5,10 @@
     margin: 0;
     padding: 0;
 }
-
-body {
-    font-family: 'Gruppo-Regular', sans-serif;
+body {    
+    font-family: -apple-system, BlinkMacSystemFont, 'Gruppo-Regular', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     line-height: 1em;
     color: var(--light);
     background: var(--dark);
@@ -30,8 +31,4 @@ hr {
 
 img {
     max-width: 100%;
-}
-
-.test {
-    color: $primary;
 }
