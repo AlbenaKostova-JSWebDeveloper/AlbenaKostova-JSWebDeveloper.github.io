@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div>Footer</div>
+    <div>2022@malykdim</div>
   )
 }

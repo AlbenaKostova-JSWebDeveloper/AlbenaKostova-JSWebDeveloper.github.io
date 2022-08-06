@@ -7,7 +7,7 @@ export default function Navbar() {
         <div className='container navigation'>
             <NavLink to='/' className='brand'>
                 <p className='subtitle'>malykdim.dev</p>
-                <h1 className='title'>JS Web Developer</h1>
+                <h1 className='title text-primary'>JS Web Developer</h1>
             </NavLink>
             
             <Menu />
