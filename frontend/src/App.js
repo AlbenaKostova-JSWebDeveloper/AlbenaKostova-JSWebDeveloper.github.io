@@ -29,7 +29,6 @@ function App() {
                     </Routes>
                 </main>
                 <footer className="App-footer">
-                    2022@malykdim
                     <Footer />
                 </footer>
             </BrowserRouter>

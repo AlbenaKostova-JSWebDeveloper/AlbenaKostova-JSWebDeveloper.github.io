@@ -1,6 +1,5 @@
 // cycles through the 'colors' map 
-// and for each key: value pair we do sth (local variables - they exist only inside the loop)
-// what do we want to do with these key: value pairs? We want to generate some kind of class
+// and for each key: value pair - generate class
 @each $key, $val in $colors { 
     .text-#{$key} {
         color:$val;
