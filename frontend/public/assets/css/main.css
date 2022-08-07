@@ -42,32 +42,42 @@ img {
 /* more flexible example for widths not covered by those above */
 @media (min-width: 0) {
   .responsive-test {
-    color: red;
+    background-color: red;
   }
 }
 @media (min-width: 480px) {
   .responsive-test {
-    color: blue;
+    background-color: blue;
   }
 }
 @media (min-width: 720px) {
   .responsive-test {
-    color: green;
+    background-color: green;
   }
 }
 @media (min-width: 960px) {
   .responsive-test {
-    color: purple;
+    background-color: purple;
   }
 }
 @media (min-width: 1200px) {
   .responsive-test {
-    color: orange;
+    background-color: orange;
+  }
+}
+@media (min-width: 1900px) {
+  .responsive-test {
+    background-color: rgb(0, 225, 255);
+  }
+}
+@media (min-width: 3800px) {
+  .responsive-test {
+    background-color: rgb(65, 44, 4);
   }
 }
 @media (min-width: 1400px) {
   .responsive-test {
-    color: pink;
+    background-color: pink;
   }
 }
 

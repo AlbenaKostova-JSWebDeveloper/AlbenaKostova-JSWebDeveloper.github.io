@@ -1,7 +1,8 @@
-import React from 'react'
+import './Dashboard.scss';
+
 
 export default function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div className='container dashboard pt-3'>Dashboard</div>
   )
 }

@@ -15,7 +15,7 @@ $layout-values: flex-start, flex-end, center, space-between, space-around; // li
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    box-sizing: border-box; // padding & border are incorporated within the total width
+    box-sizing: border-box; 
 }
 
 .row {
@@ -25,9 +25,7 @@ $layout-values: flex-start, flex-end, center, space-between, space-around; // li
 
 // grid gaps
 @each $key, $val in $grid-gaps {
-    .gap-#{$key} > * { // I grab the immediate items inside the grid-gap
-        // i want to apply this gap to each item in the row
-        // each direct descendent of the row
+    .gap-#{$key} > * { 
         padding: $val;
     }
     .gap-#{$key} {

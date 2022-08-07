@@ -1,8 +1,8 @@
 @use 'sass:math';
 @import '../../sass/main.scss';
+@import '../../sass/_breakpoints.scss';
 
 .navigation {
-    background: red;
     margin: 0 auto;
     padding: 10px 20px;
     display: flex;
@@ -10,16 +10,9 @@
     justify-content: center;
     
     
-    @media screen and (min-width: 720px) {
-        padding: 1rem 0;
-    }
-    @media screen and (min-width: 960px) {
-        justify-content: space-between;
-        padding: 0 3rem;
-    }
-    
     .brand {
         font-weight: 100;
+        line-height: 1.8em;
         
         display: flex;
         flex-direction: column;
@@ -27,8 +20,8 @@
         justify-content: center;
         
         .title {
-           
-            @media screen and (min-width: 960px) {
+            font-size: $font-size-xl;
+            @include xxxl {
                 font-size: $font-size-xl;
             }
         }
@@ -56,4 +49,14 @@
             }
         }
     }
+    
+        
+    @media screen and (min-width: 720px) {
+        padding: 1rem 0;
+    }
+    @media screen and (min-width: 960px) {
+        justify-content: space-between;
+        padding: 0 3rem;
+    }
+
 }
