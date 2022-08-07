@@ -15,12 +15,12 @@ const Contact = React.lazy(() => import('./pages/contact/Contact.js'));
 
 function App() {
     return (
-        <div className="App">
+        <div className="App responsive-test">
             <BrowserRouter>
-                <header className="App-header">
+                <header className="App-header responsive-test">
                     <Navbar />
                 </header>
-                <main className="App-main pages">
+                <main className="App-main pages responsive-test">
                     <Routes>
                         <Route path='/' element={<Dashboard />}/>
                         <Route path='/projects' element={<Projects />}/>
@@ -28,7 +28,7 @@ function App() {
                         <Route path='/contact' element={<Contact />}/>
                     </Routes>
                 </main>
-                <footer className="App-footer">
+                <footer className="App-footer responsive-test">
                     <Footer />
                 </footer>
             </BrowserRouter>
