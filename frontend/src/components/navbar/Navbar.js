@@ -5,7 +5,7 @@ import './Navbar.scss';
 
 export default function Navbar() {
     return (    
-        <div className='container navigation responsive-test'>
+        <div className='container navigation'>
             <NavLink to='/' className='brand'>
                 <p className='subtitle'>malykdim.dev</p>
                 <h1 className='title text-primary'>JS Web Developer</h1>

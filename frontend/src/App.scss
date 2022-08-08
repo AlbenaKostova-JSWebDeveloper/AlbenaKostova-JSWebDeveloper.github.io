@@ -21,7 +21,7 @@
     }
     
     &-header {
-        padding: $base-padding;
+        color: $primary;
     }
     
     &-main {
@@ -32,7 +32,6 @@
     }
     
     &-footer {
-        padding: $base-padding;
         font-size: $base-font-size;        
     }
 }
