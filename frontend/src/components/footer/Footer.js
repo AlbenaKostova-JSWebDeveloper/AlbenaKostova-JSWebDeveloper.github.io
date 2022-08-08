@@ -4,6 +4,6 @@ import './Footer.scss';
 
 export default function Footer() {
   return (
-    <div className=' responsive-test'>2022@malykdim</div>
+    <div className='footer'>2022 @ malykdim</div>
   )
 }
