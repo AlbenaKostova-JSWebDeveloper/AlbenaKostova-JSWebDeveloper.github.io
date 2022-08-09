@@ -3,11 +3,11 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 
 const Admin = require('../models/AdminModel');
-const { createAdmin, getUserByUsername } = require('../services/authService');
+const { createAdmin } = require('../services/authService');
 const { generateToken } = require('../utils/parsers');
 
-// signup
 async function signup (req, res) {
+    
     const { username, email, password } = req.body;        
     
     try {
@@ -38,49 +38,11 @@ async function signup (req, res) {
         };
         
         res.status(201).json(token);
+        
     } catch (err) {
         res.status(err.status || 400).json({ error: err.message});
     }
 };
 
-// login
-async function login (req, res) {
-    
-    const { username, password } = req.body;
-    
-    try {
-        // validations
-        if (!username || !password) {
-            throw new Error('All fields are required');
-        }
-        
-        const user = await getUserByUsername(username);
-        
-        if (!user) {
-            const err = new Error('No such user');
-            err.type = 'credential';
-            throw err;
-        }
-        
-        const hasMatch = await bcrypt.compare(password, user.hashedPassword);
-        
-        if (!hasMatch) {
-            const err = new Error('Incorrect password');
-            err.type = 'credential';
-            throw err;
-        }
 
-        generateToken(user);
-        
-        res.status(200).json({ username, user });
-    } catch (err) {
-        res.status(400).json({ error: err.message});
-    }
-};
-
-
-
-module.exports = {
-    login,
-    signup
-};
+module.exports = { signup };

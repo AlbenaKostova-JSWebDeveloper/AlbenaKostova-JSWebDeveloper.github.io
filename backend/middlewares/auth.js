@@ -7,7 +7,8 @@ const {
     parseToken,
     // parseError
 } = require('../utils/parsers');
-const { signup, login } = require('../controllers/authController');
+const { signup } = require('../controllers/signupController');
+const { login } = require('../controllers/loginController');
 
 const secret = process.env.TOKEN_SECRET;
 

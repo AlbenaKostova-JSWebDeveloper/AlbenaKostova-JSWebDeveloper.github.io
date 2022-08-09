@@ -21,8 +21,6 @@ router.route('/:id')
     .get(getSingleProject) // GET a single project
     .patch(isAdmin(), updateProject) // UPDATE a project
     .delete(isAdmin(), deleteProject) // DELETE a project
-    
-    
 
 /* 
 // GET all projects
@@ -41,6 +39,5 @@ router.patch('/:id', isAdmin(), updateProject);
 router.delete('/:id', isAdmin(), deleteProject);
 
 */
-
 
 module.exports = router;
