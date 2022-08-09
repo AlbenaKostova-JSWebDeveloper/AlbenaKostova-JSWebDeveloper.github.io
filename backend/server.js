@@ -5,7 +5,6 @@ const databaseConfig = require('./config/database');
 const expressConfig = require('./config/express');
 const routesConfig = require('./config/routes');
 
-
 start();
 
 async function start() {
@@ -22,6 +21,6 @@ async function start() {
     
     /* listen for requests */
     app.listen(process.env.PORT, () => {
-        console.log(`REST Service is listenning at http://localhost:${process.env.PORT}`);
+        console.log(`REST API is listenning at http://localhost:${process.env.PORT}`);
     });  
 }
