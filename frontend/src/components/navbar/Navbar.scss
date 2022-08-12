@@ -1,62 +1,26 @@
 @use 'sass:math';
-@import '../../sass/main.scss';
+@import '../../sass/_base.scss';
 @import '../../sass/_breakpoints.scss';
 
 .navigation {
+    width: 100%;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 20px;
+    
     display: flex;
     align-items: center;
-    justify-content: center;
-    
-    
-    .brand {
-        font-weight: 100;
-        line-height: 1.8em;
-        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        
-        .title {
-            font-size: $font-size-xl;
-            @include xxxl {
-                font-size: $font-size-xl;
-            }
-        }
-        
-        .subtitle {
-            display: none;
-            
-            @media screen and (min-width: 720px) {
-                font-size: $font-size-sm;
-            }
-            @media screen and (min-width: 960px) {
-                font-size: $font-size-lg;
-            }
-        }
-        
-        .nav {
-            display: none;
-            
-            @media screen and (min-width: 960px) {
-                display: flex;
-                flex-flow: column wrap;
-                align-items: center;
-                justify-content: center;
-                line-height: 1.4em;
-            }
-        }
-    }
+    justify-content: space-between;
     
         
-    @media screen and (min-width: 720px) {
+    @include sm {        
         padding: 1rem 0;
     }
-    @media screen and (min-width: 960px) {
+    @include md {
+        justify-content: space-around;        
+        padding: 1rem 0;
+    }
+    @include lg {        
         justify-content: space-between;
         padding: 0 3rem;
     }
-
 }

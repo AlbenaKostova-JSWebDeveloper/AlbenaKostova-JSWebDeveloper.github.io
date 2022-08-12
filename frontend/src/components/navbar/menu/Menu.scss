@@ -1,3 +1,114 @@
+@import '../../../sass/_breakpoints';
+@import '../../../sass/_variables';
+
+
 .menu {
-    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.98;
+    visibility: hidden;    
+        
+    &.show {
+        visibility: visible;
+    }
+    
+    .menu-btn {
+        position: absolute;
+        z-index: 3;
+        right: 2.5rem;
+        top: 1.66rem;
+        cursor: pointer;
+        transition: all 0.5s ease-out;
+        visibility: visible;
+    
+        .btn-line {
+            width: 26px;
+            height: 1.5px;
+            margin: 5px 0 5px 0;
+            background: $primary;
+            border-radius: 2px;
+            transition: all 0.5s ease-out;
+        }
+    
+        &.close {
+            transform: rotate(180deg);
+            
+            .btn-line {
+                &:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(5px, -5px);
+                }
+            }        
+        }
+    }
+
+    .menu-nav {
+        position: absolute;
+        top: 10rem;
+        left: 10rem;
+        
+        margin-top: 1rem;
+        
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        // overflow: hidden;
+         
+        .nav-item {
+            width: 100%;
+            
+            margin: .1rem;
+            padding: 1rem;
+            background: darken($primary, 2);
+            list-style: none;
+            transform: translate3d(0, -100%, 0);
+            transition: all 0.5s ease-out;
+    
+            &.show {
+                transform: translate3d(0, 0, 0);
+            }
+            
+            .nav-item {
+                transform: translate3d(600px, 0, 0);
+                transition: all 0.5s ease-out;
+    
+                &.show {
+                    transform: translate3d(0, 0, 0);
+                }
+    
+                &.active > a {
+                    color: $light;
+                }
+                
+                .nav-link {
+                    display: inline-block;
+                    position: relative;
+                    font-size: 30px;
+                    text-transform: uppercase;
+                    padding: 1rem 0;
+                    font-weight: 300;
+                    color: set-text-color($primary);
+                    text-decoration: none;
+                    transition: all 0.5s ease-out;
+        
+                    &:hover {
+                        color: $secondary;
+                    }
+                }                
+            }
+        }
+    }
+}
+
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}) {
+        transition-delay: $x * 0.1s;
+    }
 }

@@ -1,0 +1,32 @@
+@import '../../../sass/_variables';
+@import '../../../sass/_breakpoints';
+
+
+.brand {
+    font-weight: 100;
+    line-height: 1.8em;
+    color: $primary;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    .title {
+        font-size: $base-font-size * 1.2;
+        @include xxxl {
+            font-size: $font-size-xl;
+        }
+    }
+    
+    .subtitle {
+        display: none;
+        
+        @include md {
+            font-size: $font-size-sm;
+        }
+        @include lg {
+            font-size: $font-size-lg;
+        }
+    }    
+}

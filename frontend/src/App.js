@@ -8,6 +8,7 @@ import './App.scss';
 
 const Loading = React.lazy(() => import('./components/loading/Loading.js'));
 const Dashboard = React.lazy(() => import('./pages/dashboard/Dashboard.js'));
+const Skills = React.lazy(() => import('./pages/skills/Skills.js'));
 const Projects = React.lazy(() => import('./pages/projects/Projects.js'));
 const Docs = React.lazy(() => import('./pages/docs/Docs.js'));
 const Contact = React.lazy(() => import('./pages/contact/Contact.js'));
@@ -25,6 +26,7 @@ function App() {
                     <Suspense fallback={<Loading />}>
                         <Routes>
                             <Route path='/' element={<Dashboard />}/>
+                            <Route path='/skills' element={<Skills />}/>
                             <Route path='/projects' element={<Projects />}/>
                             <Route path='/documents' element={<Docs />}/>
                             <Route path='/contact' element={<Contact />}/>
