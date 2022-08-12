@@ -23,6 +23,10 @@ export default function Menu() {
         }
     }
     
+    function openPage(e) {
+        setClose(true);
+    }
+    
     return (
         <nav className={`menu ${close ? '' : 'show'}`}> 
             <div className={`menu-btn ${!close ? 'close' : ''}`} onClick={toggleMenu}>
@@ -33,7 +37,7 @@ export default function Menu() {
             
             <ul className={`menu-nav ${close ? '' : 'show'}`} ref={menuNav}>
                 {!close && items.map((item) => (
-                    <li key={item.textContent} className="nav-item current">
+                    <li key={item.textContent} className="nav-item current" onClick={openPage}>
                         <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
                     </li>                    
                 ))}
