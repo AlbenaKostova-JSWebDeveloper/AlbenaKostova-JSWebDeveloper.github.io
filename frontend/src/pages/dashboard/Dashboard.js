@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 // import { useProjectsContext } from '../../hooks/useProjectsContext.js';
 
 import Projects from './projectsSection/Projects';
-import Skills from './skillsSection/Skills';
+// import Skills from './skillsSection/Skills';
 import Docs from './docsSection/Docs';
 import Social from './socialSection/Social';
 import './Dashboard.scss';
@@ -31,7 +31,7 @@ export default function Dashboard() {
     return (
         <div className='container dashboard'>
             <section className="skills">
-                <Skills />
+                Skills
             </section>
             
             {projects && <Projects projects={projects} />}
