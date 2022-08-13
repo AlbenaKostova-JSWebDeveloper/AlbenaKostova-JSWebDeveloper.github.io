@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import { AdminContextProvider } from './context/AdminContext.js';
 import { ProjectsContextProvider } from './context/ProjectsContext.js';
 
 import './index.scss';
@@ -11,9 +12,11 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <ProjectsContextProvider>
-            <App />      
-        </ProjectsContextProvider>
+        <AdminContextProvider>
+            <ProjectsContextProvider>
+                <App />      
+            </ProjectsContextProvider>            
+        </AdminContextProvider>
     </React.StrictMode>
 );
 
