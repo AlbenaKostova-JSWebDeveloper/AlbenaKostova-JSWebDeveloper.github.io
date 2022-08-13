@@ -1,14 +1,23 @@
 const mongoose = require('mongoose');
 const { parseError } = require('../utils/parsers');
-const { getAll, getById, create, update, del } = require('../services/projectService');
+const { getAll, getSorted, getById, create, update, del } = require('../services/projectService');
 
 
 // GET all projects
 const getAllProjects = async (req, res) => {
     const projects = await getAll();
+    console.log(projects);
+    res.status(200).json(projects);
+};
+
+// Sorted by 
+const getSortedProjects = async (req, res) => {
+    const sorted = await getSorted();
     
     res.status(200).json(projects);
 };
+
+
 
 // GET a single project
 const getSingleProject = async (req, res) => {
@@ -102,6 +111,7 @@ const deleteProject = async (req, res) => {
 
 module.exports = {
     getAllProjects,
+    getSortedProjects,
     getSingleProject,
     createProject,
     updateProject,

@@ -4,6 +4,10 @@ async function getAll () {
     return Project.find({}).sort({ createdAt: -1 });
 }
 
+async function getSorted (tag) {
+    return Project.find({}).sort({ technologies: `${tag}` });
+}
+
 async function getById (id) {
     return Project.findById(id);
 }
@@ -24,6 +28,7 @@ async function del (id) {
 
 module.exports = {
     getAll,
+    getSorted,
     getById,
     create,
     update,
