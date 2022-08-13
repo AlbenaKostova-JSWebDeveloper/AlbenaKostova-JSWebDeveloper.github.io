@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { useAdminContext } from '../../../hooks/useAdminContext';
 import { useLogout } from '../../../hooks/useLogout';
 import './Menu.scss';
 
@@ -18,9 +19,10 @@ const adminNav = [
 ];
 
 export default function Menu() {
-    const menuNav = React.createRef()
+    // const menuNav = React.createRef();
     const [close, setClose] = useState(true);
-    const { logout } = useLogout()
+    const { logout } = useLogout();
+    const { admin } = useAdminContext();
     
     function toggleMenu(e) {
         if (close) {
@@ -46,24 +48,28 @@ export default function Menu() {
                 <div className="btn-line"></div>
             </div>   
             
-            <ul className={`menu-nav ${close ? '' : 'show'}`} ref={menuNav}>
+            <ul className={`menu-nav ${close ? '' : 'show'}`}>
                 {!close && items.map((item) => (
                     <li key={item.textContent} className="nav-item current" onClick={openPage}>
                         <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
                     </li>                    
                 ))}
-            </ul>           
+            </ul> 
+                      
             <ul className={`admin-nav ${close ? '' : 'show'}`}>
-                <div id='admin-out'>
+                {!admin && <div id='admin-out'>
                     {adminNav && adminNav.map((item) => (
                         <li key={item.textContent} className="nav-item current" onClick={openPage}>
                             <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
                         </li>                    
                     ))}                    
-                </div>
-                <div id='admin-in'>
-                    <button id="logout" className='logout' onClick={handleLogout}>Log out</button>                    
-                </div>
+                </div>}
+                {admin && (
+                    <div id='admin-in'>
+                        <span className="name">{admin.username}</span>&nbsp;
+                        <button id="logout" className='logout' onClick={handleLogout}>Log out</button>                    
+                    </div>
+                )}
             </ul>           
         </nav>
     );
