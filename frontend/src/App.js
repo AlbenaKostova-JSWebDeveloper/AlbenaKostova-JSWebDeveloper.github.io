@@ -7,6 +7,8 @@ import Footer from './components/footer/Footer.js';
 import './App.scss';
 
 const Loading = React.lazy(() => import('./components/loading/Loading.js'));
+const Signup = React.lazy(() => import('./pages/admin/signup/Signup.js'));
+const Login = React.lazy(() => import('./pages/admin/login/Login.js'));
 const Dashboard = React.lazy(() => import('./pages/dashboard/Dashboard.js'));
 const Skills = React.lazy(() => import('./pages/skills/Skills.js'));
 const Projects = React.lazy(() => import('./pages/projects/Projects.js'));
@@ -26,6 +28,8 @@ function App() {
                     <Suspense fallback={<Loading />}>
                         <Routes>
                             <Route path='/' element={<Dashboard />}/>
+                            <Route path='/signup' element={<Signup />}/>
+                            <Route path='/login' element={<Login />}/>
                             <Route path='/skills' element={<Skills />}/>
                             <Route path='/projects' element={<Projects />}/>
                             <Route path='/documents' element={<Docs />}/>
