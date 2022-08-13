@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { useSignup } from '../../../hooks/useSignup';
 import '../Auth.scss';
 
 
@@ -7,11 +8,13 @@ export default function Signup() {
     const [username, setUsername] = useState(''); 
     const [email, setEmail] = useState(''); 
     const [password, setPassword] = useState(''); 
+    const { signup, isLoading, error } = useSignup();
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         
         console.log(username, email, password);
+        await signup(username, email, password);
     };
     
     return (
@@ -33,8 +36,9 @@ export default function Signup() {
                 <input type="password" id='password' onChange={(e) => setPassword(e.target.value)} value={password} />
             </label>
             
-            <button className="auth" id="signup">Sign up</button>
+            <button className="auth" id="signup" disabled={isLoading}>Sign up</button>
             
+            {error && <div className='error'>{error}</div>}
         </form>
     );
 }
