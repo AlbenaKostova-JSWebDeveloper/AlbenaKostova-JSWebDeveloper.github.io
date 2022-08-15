@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useAdminContext } from '../../../hooks/useAdminContext';
 import { useLogout } from '../../../hooks/useLogout';
 import './Menu.scss';
+
+const Modal = React.lazy(() => import('../../modal/Modal'));
 
 const items = [
     { path: '/', textContent: 'home' }, 
@@ -11,11 +13,6 @@ const items = [
     { path: '/projects', textContent: 'projects' }, 
     { path: '/documents', textContent: 'documents' }, 
     { path: '/contact', textContent: 'contact' }
-];
-
-const adminNav = [
-    { path: '/login', textContent: 'login' }, 
-    { path: '/signup', textContent: 'signup' }, 
 ];
 
 export default function Menu() {
@@ -38,6 +35,7 @@ export default function Menu() {
     
     function handleLogout () {
         logout();
+        setClose(true);
     }
     
     return (
@@ -46,31 +44,30 @@ export default function Menu() {
                 <div className="btn-line"></div>
                 <div className="btn-line"></div>
                 <div className="btn-line"></div>
-            </div>   
-            
-            <ul className={`menu-nav ${close ? '' : 'show'}`}>
-                {!close && items.map((item) => (
-                    <li key={item.textContent} className="nav-item current" onClick={openPage}>
-                        <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
-                    </li>                    
-                ))}
-            </ul> 
-                      
-            <ul className={`admin-nav ${close ? '' : 'show'}`}>
-                {!admin && <div id='admin-out'>
-                    {adminNav && adminNav.map((item) => (
-                        <li key={item.textContent} className="nav-item current" onClick={openPage}>
-                            <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
-                        </li>                    
-                    ))}                    
-                </div>}
-                {admin && (
-                    <div id='admin-in'>
-                        <span className="name">{admin.username}</span>&nbsp;
-                        <button id="logout" className='logout' onClick={handleLogout}>Log out</button>                    
+            </div>
+               
+            <Suspense fallback={<div>Loading...</div>}>
+                <Modal className={`${close ? '' : 'show'}`}>
+                    <div className="menu-nav">
+                        <ul className={`user ${close ? 'show' : ''}`}>
+                            {!close && items.map((item) => (
+                                <li key={item.textContent} className="nav-item current" onClick={openPage}>
+                                    <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
+                                </li>                            
+                            ))}
+                        </ul>
+                        
+                    {admin && (
+                        <ul className={`admin ${close ? 'show' : ''}`}>
+                            <li className='nav-item'>
+                                <span className="name">{admin.username}</span> &nbsp;
+                                <button id="logout" className='logout nav-link' onClick={handleLogout}>Log out</button>                    
+                            </li>                                                 
+                        </ul>                
+                    )}                                    
                     </div>
-                )}
-            </ul>           
+                </Modal>
+            </Suspense>
         </nav>
     );
 }

@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
+import { useAdminContext } from './hooks/useAdminContext';
 import Navbar from './components/navbar/Navbar.js';
 import Footer from './components/footer/Footer.js';
 import './App.scss';
@@ -15,9 +16,9 @@ const Projects = React.lazy(() => import('./pages/projects/Projects.js'));
 const Docs = React.lazy(() => import('./pages/docs/Docs.js'));
 const Contact = React.lazy(() => import('./pages/contact/Contact.js'));
 
-
-
 function App() {
+    const { admin } = useAdminContext();
+    
     return (
         <div className="App">
             <BrowserRouter>
@@ -28,8 +29,8 @@ function App() {
                     <Suspense fallback={<Loading />}>
                         <Routes>
                             <Route path='/' element={<Dashboard />}/>
-                            <Route path='/signup' element={<Signup />}/>
-                            <Route path='/login' element={<Login />}/>
+                            <Route path='/signup' element={admin ? <Navigate to='/' /> : <Signup />}/>
+                            <Route path='/login' element={admin ? <Navigate to='/' /> : <Login />}/>
                             <Route path='/skills' element={<Skills />}/>
                             <Route path='/projects' element={<Projects />}/>
                             <Route path='/documents' element={<Docs />}/>

@@ -3,7 +3,7 @@
 .skills {
     margin: 1rem auto;
     border: 1px solid $primary;
-    border-radius: 4px;
+    border-radius: $base-border-radius;
     
     .section-title {
         font-weight: 100;
@@ -13,7 +13,7 @@
     .icons {
         display: flex;
         justify-content: center;
-        gap: .1rem;
+        gap: 1rem;
         
         margin-bottom: 1.5rem;
 
