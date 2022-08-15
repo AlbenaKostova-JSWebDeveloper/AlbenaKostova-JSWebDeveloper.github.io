@@ -3,21 +3,24 @@
 
 
 .menu {
-    position: fixed;
-    top: 0;
-    width: 100%;
+    position: relative;
+    // width: 100%;
     opacity: 0.98;
-    visibility: hidden;    
+    visibility: hidden;   
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
         
     &.show {
         visibility: visible;
     }
     
     .menu-btn {
-        position: absolute;
+        position: relative;
         z-index: 3;
-        right: 2.5rem;
-        top: 1.66rem;
+        // right: 1.5rem;
+        // top: 1.5rem;
         cursor: pointer;
         transition: all 0.5s ease-out;
         visibility: visible;
@@ -47,77 +50,87 @@
             }        
         }
     }
-
-    .menu-nav {
-        position: absolute;
-        top: 10rem;
-        left: 10rem;
-        
-        margin-top: 1rem;
-        
+    
+    
+    .menu-nav {   
         display: flex;
         flex-flow: column wrap;
-        align-items: center;
+        align-items: space-between;
         justify-content: center;
-        // overflow: hidden;
-         
-        .nav-item {
-            width: 100%;
-            
-            margin: .1rem;
-            padding: 1rem;
-            background: darken($primary, 2);
-            list-style: none;
-            transform: translate3d(0, -100%, 0);
-            transition: all 0.5s ease-out;
-    
-            &.show {
-                transform: translate3d(0, 0, 0);
-            }
+        gap: 3rem;
+        // overflow: hidden;      
+        
+        .user, .admin {
+            margin: 0 auto;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: center;
             
             .nav-item {
-                transform: translate3d(600px, 0, 0);
+                width: 100%;
+                
+                margin: .1rem;
+                padding: 1rem;
+                list-style: none;
+                transform: translate3d(0, -100%, 0);
                 transition: all 0.5s ease-out;
-    
+        
                 &.show {
                     transform: translate3d(0, 0, 0);
                 }
-    
-                &.active > a {
-                    color: $light;
-                }
                 
-                .nav-link {
-                    display: inline-block;
-                    position: relative;
-                    font-size: 30px;
-                    text-transform: uppercase;
-                    padding: 1rem 0;
-                    font-weight: 300;
-                    color: set-text-color($primary);
-                    text-decoration: none;
+                .nav-item {
+                    transform: translate3d(600px, 0, 0);
                     transition: all 0.5s ease-out;
         
-                    &:hover {
-                        color: $secondary;
+                    &.show {
+                        transform: translate3d(0, 0, 0);
                     }
-                }                
+        
+                    &.active > a {
+                        color: $light;
+                    }
+                    
+                    .nav-link {
+                        display: inline-block;
+                        position: relative;
+                        font-size: 30px;
+                        text-transform: uppercase;
+                        padding: 1rem 0;
+                        font-weight: 300;
+                        color: set-text-color($primary);
+                        text-decoration: none;
+                        transition: all 0.5s ease-out;
+            
+                        &:hover {
+                            color: $secondary;
+                        }
+                    }                
+                }
             }
         }
-    }
-    
-    .admin-nav {
-        .logout {
-            background: #fff;
-            color: black;
-            border: 2px solid black;
-            padding: 6px 10px;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1em;
-            cursor: pointer;
+        
+        .user .nav-item {
+            background: darken($primary, 5%); 
         }
-    }
+        
+        .admin .nav-item {
+            background: $secondary;
+            width: 100%;            
+            
+            .logout {
+                background: $light;
+                color: $secondary;
+                border: 1px solid lighten($secondary, 35%);
+                padding: 6px 10px;
+                border-radius: 4px;
+                font-family: inherit;
+                font-size: 1em;
+                cursor: pointer;
+            }
+        }
+    }    
 }
 
 @for $x from 1 through 4 {
