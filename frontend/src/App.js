@@ -22,10 +22,10 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter>
-                <header className="App-header">
+                <header className="header">
                     <Navbar />
                 </header>
-                <main className="App-main pages pt-3">
+                <main className="main pages pt-3">
                     <Suspense fallback={<Loading />}>
                         <Routes>
                             <Route path='/' element={<Dashboard />}/>
@@ -38,7 +38,7 @@ function App() {
                         </Routes>
                     </Suspense>
                 </main>
-                <footer className="App-footer">
+                <footer className="footer">
                     <Footer />
                 </footer>
             </BrowserRouter>

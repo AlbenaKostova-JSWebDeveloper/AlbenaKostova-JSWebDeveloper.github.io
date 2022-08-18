@@ -14,23 +14,17 @@ $base-border-thickness: 1px;
 $base-border-radius: 4px;
 
 // box-shadow
-$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, .1);
-
-/* *************************************************************************** */
+$base-box-shadow: -1px 2px 3px rgba(250, 235, 215, .5);
 
 // theme colors
 $primary: rgb(235, 116, 68);
 $secondary: rgb(40, 44, 52);
-
 $error: rgb(101, 12, 41);
 $info: rgb(229, 201, 118);
 $success: rgb(28, 102, 102);
-
 $light: rgb(250, 235, 215);
 $dark: rgb(28, 28, 28);
-
 $gray: rgb(128, 128, 128);
-
 
 // color palette // map
 $colors: (
