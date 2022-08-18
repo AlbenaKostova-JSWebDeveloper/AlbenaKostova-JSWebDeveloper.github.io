@@ -4,8 +4,8 @@ import './Social.scss';
 
 export default function Social() {
     return (
-        <section>
-            Social
+        <section className='social'>
+            Contact
         </section>
     );
 }
