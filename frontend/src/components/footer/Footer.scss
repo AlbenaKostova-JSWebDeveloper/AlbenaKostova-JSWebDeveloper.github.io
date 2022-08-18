@@ -1,4 +1,7 @@
 @import '../../sass/_variables';
+
 .footer {
-    padding: $base-padding * .5;
+    padding: $base-padding * .7;
+    font-size: $base-font-size * .8;
+    color: $primary;
 }
