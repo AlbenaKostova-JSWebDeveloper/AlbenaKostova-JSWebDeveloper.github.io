@@ -5,14 +5,18 @@ import { useAdminContext } from '../../../hooks/useAdminContext';
 import { useLogout } from '../../../hooks/useLogout';
 import './Menu.scss';
 
+const Loading = React.lazy(() => import('../../loading/Loading'));
 const Modal = React.lazy(() => import('../../modal/Modal'));
+const Button = React.lazy(() => import('../../button/Button'));
 
 const items = [
     { path: '/', textContent: 'home' }, 
     { path: '/skills', textContent: 'skills' }, 
     { path: '/projects', textContent: 'projects' }, 
     { path: '/documents', textContent: 'documents' }, 
-    { path: '/contact', textContent: 'contact' }
+    { path: '/contact', textContent: 'contact' },
+    { path: '/signup', textContent: 'sign up' }, 
+    { path: '/login', textContent: 'log in' } 
 ];
 
 export default function Menu() {
@@ -46,10 +50,10 @@ export default function Menu() {
                 <div className="btn-line"></div>
             </div>
                
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading />}>
                 <Modal className={`${close ? '' : 'show'}`}>
-                    <div className="menu-nav">
-                        <ul className={`user ${close ? 'show' : ''}`}>
+                    <nav className="menu-nav">
+                        <ul className={`guest ${close ? 'show' : ''}`}>
                             {!close && items.map((item) => (
                                 <li key={item.textContent} className="nav-item current" onClick={openPage}>
                                     <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
@@ -57,15 +61,15 @@ export default function Menu() {
                             ))}
                         </ul>
                         
-                    {admin && (
+                        {admin && (
                         <ul className={`admin ${close ? 'show' : ''}`}>
                             <li className='nav-item'>
                                 <span className="name">{admin.username}</span> &nbsp;
-                                <button id="logout" className='logout nav-link' onClick={handleLogout}>Log out</button>                    
+                                <Button  id="logout" className='logout nav-link' onClick={handleLogout}>Log out</Button>
                             </li>                                                 
                         </ul>                
-                    )}                                    
-                    </div>
+                        )}                                    
+                    </nav>
                 </Modal>
             </Suspense>
         </nav>

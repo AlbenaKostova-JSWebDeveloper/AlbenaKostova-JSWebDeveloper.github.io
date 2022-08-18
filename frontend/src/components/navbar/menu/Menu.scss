@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
         
     &.show {
         visibility: visible;
@@ -60,7 +61,7 @@
         gap: 3rem;
         // overflow: hidden;      
         
-        .user, .admin {
+        .guest, .admin {
             margin: 0 auto;
             display: flex;
             flex-flow: column wrap;
@@ -111,7 +112,7 @@
             }
         }
         
-        .user .nav-item {
+        .guest .nav-item {
             background: darken($primary, 5%); 
         }
         
@@ -122,12 +123,7 @@
             .logout {
                 background: $light;
                 color: $secondary;
-                border: 1px solid lighten($secondary, 35%);
-                padding: 6px 10px;
-                border-radius: 4px;
-                font-family: inherit;
-                font-size: 1em;
-                cursor: pointer;
+                border: 1px solid lighten($secondary, 35%);                
             }
         }
     }    
