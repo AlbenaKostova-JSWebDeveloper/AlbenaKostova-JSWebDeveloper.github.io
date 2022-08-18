@@ -1,0 +1,29 @@
+@use 'sass:math';
+@import '../../sass/variables';
+
+.card {
+    display: block;
+    padding: $base-padding;
+    border: $base-border-thickness solid $secondary;
+    border-radius: math.div($base-border-radius, 4);
+    box-shadow: $base-box-shadow;
+    
+    .card-title {
+        padding-bottom: $base-padding;
+        font-size: $font-size-lg;
+        font-weight: bold;
+    }
+    
+    .card-body {
+        font-size: $base-font-size;
+        
+        a {
+            text-decoration: underline;
+        }
+    }
+    
+    .test-btn {
+        background-color: map-get($colors, "secondary");
+        color: $light;
+    }
+}
