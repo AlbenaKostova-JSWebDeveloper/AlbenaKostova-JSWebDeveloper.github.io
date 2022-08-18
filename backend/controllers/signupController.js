@@ -27,9 +27,10 @@ async function signup (req, res) {
         
         // hashing password
         const hashedPassword = await bcrypt.hash(password, 10);   
+        console.log(hashedPassword);
         
         // creating record
-        const admin = await createAdmin(username.trim(), email.trim(), password.trim());
+        const admin = await createAdmin(username.trim(), email.trim(), hashedPassword.trim());
         
         const token = {
             _id: admin._id,
