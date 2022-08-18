@@ -1,46 +1,52 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect } from 'react';
 
-// import { useProjectsContext } from '../../hooks/useProjectsContext.js';
+import { useProjectsContext } from '../../hooks/useProjectsContext';
 
+import SectionLink from '../../components/section-link/SectionLink';
 import Projects from './projectsSection/Projects';
 import Skills from './skillsSection/Skills';
 import Docs from './docsSection/Docs';
 import Social from './socialSection/Social';
 import './Dashboard.scss';
 
-
 export default function Dashboard() {
-    const [projects, setProjects] = useState(null);
-    // const {projects, dispatch} = useProjectsContext();
+    const {projects, dispatch} = useProjectsContext();
 
     useEffect(() => {
         const fetchProjects = async () => {
-            const res = await fetch('/api/projects');
+            const res = await fetch('http://localhost:4000/api/projects/62ac8f53d2d373a236ee6b8f');
             const json = await res.json();
-            console.log(json);
+            // console.log(json);
+            
+            if (json.projects) {}
                 
             if (res.ok) {
-                setProjects(json)
-                // dispatch({ type: 'SET_PROJECTS', payload: json });
+                dispatch({ type: 'SET_PROJECTS', payload: json });
             }
         };
         
         fetchProjects();
-    }, []);
+    }, [dispatch]);
     
     return (
-        <div className='container dashboard'>
-            <Skills />
-            
-            {projects && <Projects projects={projects} />}
-            
-            <section className="docs">
-                <Docs />
-            </section>
-            
-            <section className="social">
-                <Social />
-            </section>
-        </div>
+        <Suspense fallback={<div>Loading...</div>} >
+            <div className='container dashboard'>
+                <SectionLink path='/skills'>
+                    <Skills />
+                </SectionLink>
+                
+                <SectionLink path='/projects'>
+                    <Projects projects={projects} />
+                </SectionLink>
+                
+                <SectionLink path='/documents'>
+                    <Docs />
+                </SectionLink>
+                
+                <SectionLink path='/contact'>
+                    <Social />
+                </SectionLink>   
+            </div>
+        </Suspense>
     );
 }

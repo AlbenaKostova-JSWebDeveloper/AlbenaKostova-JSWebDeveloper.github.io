@@ -1,13 +1,11 @@
 @import '../../../sass/variables.scss';
 
 .skills {
-    margin: 1rem auto;
-    border: 1px solid $primary;
+    
     border-radius: $base-border-radius;
     
     .section-title {
         font-weight: 100;
-        padding-top: 1.2rem;
         margin-bottom: 1.5rem;
     }
     .icons {
@@ -15,8 +13,7 @@
         justify-content: center;
         gap: 1rem;
         
-        margin-bottom: 1.5rem;
-
+        // margin-bottom: 1.5rem;
         
         img {
             width: 40;
