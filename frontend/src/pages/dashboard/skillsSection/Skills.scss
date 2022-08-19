@@ -1,13 +1,11 @@
-@import '../../../sass/variables.scss';
+@import '../../../sass/_functions.scss';
+@import '../../../sass/_variables.scss';
 
 .skills {
     
     border-radius: $base-border-radius;
     
-    .section-title {
-        font-weight: 100;
-        margin-bottom: 1.5rem;
-    }
+    
     .icons {
         display: flex;
         justify-content: center;

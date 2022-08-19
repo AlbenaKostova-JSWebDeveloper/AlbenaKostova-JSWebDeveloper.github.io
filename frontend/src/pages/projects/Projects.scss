@@ -1,0 +1,8 @@
+@import '../../sass/_functions';
+@import '../../sass/_variables';
+
+.projects-page {
+    .section-title {
+        @include section-title;
+    }
+}
