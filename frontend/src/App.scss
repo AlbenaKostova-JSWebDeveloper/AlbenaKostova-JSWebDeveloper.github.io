@@ -1,11 +1,11 @@
 @import 'sass/_variables';
-@import 'sass/colors';
+// @import 'sass/colors';
 @import 'sass/utilities';
 
 /* reset styles */
 * {
     box-sizing: border-box;
-    color: inherit;
+    // color: inherit;
     margin: 0;
     padding: 0;
     text-align: center; 
@@ -16,8 +16,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     
     line-height: 1em;
-    color: var(--light);
-    background: var(--dark);
+    color: $light;
+    background: $secondary;
     overflow-x: hidden;
 }
 
@@ -54,8 +54,8 @@ img {
     
     font-size: calc(10px + 2vmin);
     text-align: center;
-    color: whitesmoke;
-    background-color: #282c34;
+    color: $light;
+    background-color: $secondary;
     
     .header, .main, .footer {
         width: 100vw;

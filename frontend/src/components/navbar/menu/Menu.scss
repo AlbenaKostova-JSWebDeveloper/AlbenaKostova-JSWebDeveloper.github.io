@@ -113,7 +113,9 @@
         }
         
         .guest .nav-item {
-            background: darken($primary, 5%); 
+            background: $light; 
+            border-radius: $base-border-radius;
+            color: $primary;
         }
         
         .admin .nav-item {

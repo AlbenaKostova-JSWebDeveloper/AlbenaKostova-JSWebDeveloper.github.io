@@ -1,3 +1,5 @@
+@import './variables';
+
 // cycles through the 'colors' map 
 // and for each key: value pair - generate class
 @each $key, $val in $colors { 
@@ -13,35 +15,35 @@
         background-color: $val;
     }
     
-    @if($val != black and $val != white) {
+    @if($val != $secondary and $val != $light) {
         
         // light variations
         @for $i from 1 through 9 {
             .text-#{$key}-light-#{$i} {
-                color: mix(white, $val, $i * 10);
+                color: mix($light, $val, $i * 10);
             }
             .text-hover-#{$key}-light-#{$i} {
                 &:hover {
-                    color: mix(white, $val, $i * 10);
+                    color: mix($light, $val, $i * 10);
                 }
             }
             .bg-#{$key}-light-#{$i} {
-                background-color: mix(white, $val, $i * 10);
+                background-color: mix($light, $val, $i * 10);
             }
         }
         
         // dark variations
         @for $i from 1 through 9 {
             .text-#{$key}-dark-#{$i} {
-                color: mix(black, $val, $i * 10);
+                color: mix($secondary, $val, $i * 10);
             }
             .text-hover-#{$key}-dark-#{$i} {
                 &:hover {
-                    color: mix(black, $val, $i * 10);
+                    color: mix($secondary, $val, $i * 10);
                 }
             }
             .bg-#{$key}-dark-#{$i} {
-                background-color: mix(black, $val, $i * 10);
+                background-color: mix($secondary, $val, $i * 10);
             }
         }
     }

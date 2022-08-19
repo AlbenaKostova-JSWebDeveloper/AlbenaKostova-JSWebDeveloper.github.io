@@ -1,6 +1,6 @@
 @import '../../sass/variables';
 
-@mixin btn($bg-color: #e2e2e2) {
+@mixin btn {
     cursor: pointer;
     display: inline-block;
     padding: $base-padding $base-padding * 2;

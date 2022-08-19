@@ -19,3 +19,16 @@
     border: none;
     border-radius: $base-border-radius;
 }
+
+@mixin btn {
+    cursor: pointer;
+    display: inline-block;
+    padding: $base-padding $base-padding * 2;
+    
+    border: none;
+    border-radius: $base-border-radius;
+    
+    font-family: inherit;
+    font-size: 1em;
+    text-decoration: none;
+}
