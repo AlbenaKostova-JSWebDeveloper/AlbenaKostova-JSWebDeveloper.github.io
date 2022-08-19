@@ -37,7 +37,7 @@ export default function Login() {
                 <input type="password" id='password' className='input' onChange={(e) => setPassword(e.target.value)} placeholder="password" value={password} />
             </label>
             
-            <Button className="submit" id="login" disabled={isLoading}>Log in</Button>
+            <Button  className='btn submit' disabled={isLoading}>Log in</Button>
             
             {error && <div className='error'>{error}</div>}            
         </form>
