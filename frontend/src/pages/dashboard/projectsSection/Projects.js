@@ -9,7 +9,7 @@ export default function Projects({ project }) {
     
     return (
         <section className='projects grid'>
-            Projects
+            <h3 className="section-title">Projects</h3>
             
             <Suspense fallback={<Loading />}>
                 {project ? 

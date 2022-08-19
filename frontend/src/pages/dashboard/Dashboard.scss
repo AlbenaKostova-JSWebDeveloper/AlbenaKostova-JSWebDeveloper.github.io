@@ -1,5 +1,11 @@
-@import '../../sass/variables';
+@import '../../sass/_functions';
+@import '../../sass/_variables';
 
 .dashboard {
     padding: 0 $base-padding * 2;
+    
+    .section-title {
+        @include section-title;        
+    }
+    
 }
