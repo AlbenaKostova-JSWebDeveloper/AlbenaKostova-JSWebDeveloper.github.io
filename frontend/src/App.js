@@ -15,6 +15,10 @@ const Skills = React.lazy(() => import('./pages/skills/Skills.js'));
 const Projects = React.lazy(() => import('./pages/projects/Projects.js'));
 const Docs = React.lazy(() => import('./pages/docs/Docs.js'));
 const Contact = React.lazy(() => import('./pages/contact/Contact.js'));
+const AdminPanel = React.lazy(() => import('./pages/admin/admin-panel/AdminPanel.js'));
+const SkillsForm = React.lazy(() => import('./pages/admin/admin-panel/SkillsForm.js'));
+const ProjectsForm = React.lazy(() => import('./pages/admin/admin-panel/ProjectsForm.js'));
+const DocsForm = React.lazy(() => import('./pages/admin/admin-panel/DocsForm.js'));
 
 function App() {
     const { admin } = useAdminContext();
@@ -35,6 +39,10 @@ function App() {
                             <Route path='/projects' element={<Projects />}/>
                             <Route path='/documents' element={<Docs />}/>
                             <Route path='/contact' element={<Contact />}/>
+                            <Route path='/admin' element={<AdminPanel />}/>
+                            <Route path='/skills-form' element={<SkillsForm />}/>
+                            <Route path='/projects-form' element={<ProjectsForm />}/>
+                            <Route path='/documents-form' element={<DocsForm />}/>
                         </Routes>
                     </Suspense>
                 </main>
