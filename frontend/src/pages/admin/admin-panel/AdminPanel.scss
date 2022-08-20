@@ -1,0 +1,10 @@
+@import '../../../sass/functions';
+@import '../../../sass/variables';
+
+.admin-panel {
+    padding: 0 $base-padding * 2;
+    
+    .section-title {
+        @include section-title;  
+    }
+}

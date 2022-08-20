@@ -16,7 +16,11 @@ const items = [
     { path: '/documents', textContent: 'documents' }, 
     { path: '/contact', textContent: 'contact' },
     { path: '/signup', textContent: 'sign up' }, 
-    { path: '/login', textContent: 'log in' } 
+    { path: '/login', textContent: 'log in' },
+    { path: '/admin', textContent: 'admin' },
+    { path: '/skills-form', textContent: 'skills-form' },
+    { path: '/projects-form', textContent: 'projects-form' },
+    { path: '/documents-form', textContent: 'documents-form' },
 ];
 
 export default function Menu() {

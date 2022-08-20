@@ -1,0 +1,51 @@
+@import '../../../sass/_functions';
+@import '../../../sass/_variables';
+
+.form {
+    max-width: 80%;
+    width: 70%;
+    margin: 1rem auto;
+    padding: 2rem;    
+    
+    background: lighten($primary, 3%);
+    color: $light;
+    border-radius: $base-border-radius;
+    
+    .section-title {
+        @include section-title;
+    }
+    
+    .label {
+        display: flex;
+        flex-flow: column wrap;
+        gap: .2rem;
+        margin-bottom: .7rem;
+        .span {
+            font-size: small;
+        }
+        .input {
+            @include input;
+            color: darken($secondary, 15%);
+            background: $light;
+            
+            &:focus-within {
+                background: $light;                
+            }
+        }
+    }
+    
+    .submit {
+        @include btn;
+        background: $light;
+        color: $secondary;
+        // border: 1px solid lighten($secondary, 35%);
+        box-shadow: 1px 1px 3px darken($primary, 35%);
+        
+        &:hover {
+            background: lighten($secondary, 9%);
+            color: $primary;    
+            // border: 1px solid $light;
+            box-shadow: 1px 1px 3px darken($primary, 35%);            
+        }
+    }
+}
