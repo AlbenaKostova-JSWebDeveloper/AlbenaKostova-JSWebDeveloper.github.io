@@ -39,7 +39,7 @@ const getSingleProject = async (req, res) => {
 // POST new project / CREATE
 const createProject = async (req, res) => {
     
-    const { title, description, technologies, link, image } = req.body;
+    const { title, description, technologies, repo, link, image } = req.body;
     
     let emptyFields = [];
     
@@ -52,6 +52,9 @@ const createProject = async (req, res) => {
     if (!technologies) {
         emptyFields.push('technologies');
     }
+    if (!repo) {
+        emptyFields.push('repo');
+    }
     if (!link) {
         emptyFields.push('link');
     }
@@ -63,7 +66,7 @@ const createProject = async (req, res) => {
         return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
     }
     
-    const data = {  title, description, technologies, link, image };
+    const data = {  title, description, technologies, repo, link, image };
     
     try {
         // add doc to db
