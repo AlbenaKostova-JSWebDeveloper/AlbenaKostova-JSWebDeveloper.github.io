@@ -44,7 +44,7 @@ export default function Projects() {
                                 </p>
                                 <p className="p repo">
                                     <span className="tip">View code: </span>
-                                    <a href={ project.link } target="_blank" rel="noopener noreferrer" className="url">{ project.title }</a>
+                                    <a href={ project.repo } target="_blank" rel="noopener noreferrer" className="url">{ project.title }</a>
                                 </p>
                                 <p className="p app">
                                     <span className="tip">Visit App: </span>
