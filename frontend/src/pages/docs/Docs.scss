@@ -1,0 +1,32 @@
+@use 'sass:math';
+@import '../../sass/_functions';
+@import '../../sass/_variables';
+@import '../../sass/_breakpoints';
+@import '../../sass/_grid';
+
+.docs-page {
+    padding: $base-padding;
+    
+    .section-title {
+        @include section-title;
+    }
+    
+    .docs {
+        padding: $base-padding;
+        
+        display: flex;
+        flex-wrap: wrap;
+        .doc-card {
+                        
+            .pdf {
+                .image-container {
+                    width: 20%;
+                    .img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
