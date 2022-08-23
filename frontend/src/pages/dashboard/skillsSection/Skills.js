@@ -6,6 +6,7 @@ export default function Skills() {
     return (
         <section className="skills">
             <h3 className="section-title">Technical skills</h3>
+            
             <Suspense fallback={<div>Loading...</div>}>
                 <p className="icons">
                     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="30" height="30"/> 
