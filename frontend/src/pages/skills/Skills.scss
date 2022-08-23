@@ -1,0 +1,29 @@
+@use 'sass:math';
+@import '../../sass/_functions';
+@import '../../sass/_variables';
+@import '../../sass/_breakpoints';
+@import '../../sass/_grid';
+
+
+.skills-page {
+    padding: $base-padding;
+    
+    .section-title {
+        @include section-title;
+        margin-bottom: 2rem;
+    }
+
+    .skills {
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: .5rem;
+        
+        .icons {
+            padding: math.div($base-padding, 3); 
+            font-size: $font-size-sm;  
+            gap: 1.5rem;     
+        }
+    }
+}
