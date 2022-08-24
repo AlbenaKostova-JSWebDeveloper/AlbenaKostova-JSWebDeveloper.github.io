@@ -2,28 +2,28 @@ import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom';
 
 import Loading from '../../../components/loading/Loading';
-import Card from '../../../components/card/Card';
 import './Projects.scss';
 
-export default function Projects({ project }) {
-    
+export default function Projects() {
     return (
-        <section className='projects grid'>
-            <h3 className="section-title">Projects</h3>
-            
-            <Suspense fallback={<Loading />}>
-                {project ? 
-                    <Card project={project}>
-                        <Link className="link" to="/projects">
-                            <header className="image-container">
-                                <img src={ project.image } alt="screenshot of the website" className="image" />
-                            </header>
-                            <h5 className="project-title">{ project.title }</h5>        
-                        </Link>
-                    </Card> : ''
-                }
-            </Suspense>         
+        <section className='projects-section'>
+            <Link className="link" to="/projects">
+                <h3 className="section-title">Projects</h3>
                 
+                <article className='projects grid'>
+                    <Suspense fallback={<Loading />}>
+                        <div className="image-container">
+                            <img src="/assets/images/team-hub.jpeg" alt="screenshot of the website" className="image" />
+                        </div>
+                        <div className="image-container">
+                            <img src="/assets/images/the-stone-magic.jpeg" alt="screenshot of the website" className="image" />
+                        </div>
+                        <div className="image-container">
+                            <img src="/assets/images/projects-bg.jpg" alt="screenshot of the website" className="image" />
+                        </div>
+                    </Suspense>                         
+                </article>                
+            </Link>
         </section>
     );
 }
