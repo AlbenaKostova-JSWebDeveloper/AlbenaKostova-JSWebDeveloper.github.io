@@ -19,7 +19,7 @@ export default function Projects() {
                             <img src="/assets/images/the-stone-magic.jpeg" alt="screenshot of the website" className="image" />
                         </div>
                         <div className="image-container">
-                            <img src="/assets/images/projects-bg.jpg" alt="screenshot of the website" className="image" />
+                            <img src="/assets/images/projects-bg.jpg" alt="screenshot of the website" className="image" /> 
                         </div>
                     </Suspense>                         
                 </article>                
