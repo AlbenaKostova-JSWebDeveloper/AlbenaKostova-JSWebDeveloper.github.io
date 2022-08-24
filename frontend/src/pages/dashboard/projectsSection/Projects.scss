@@ -1,3 +1,16 @@
-.projects {
-    
+.projects-section {
+    .projects {
+        display: flex;
+        gap: 1.2rem;
+        
+        .image-container {
+            width: 158px;
+            height: 78px; 
+            
+            .image {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }    
 }
