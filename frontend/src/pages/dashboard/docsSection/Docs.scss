@@ -1,0 +1,18 @@
+@import '../../../sass/_variables';
+
+.documents-section {
+    .documents {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        
+        .icon-container {
+            width: 50px;
+            height: 100%;
+            
+            .icon {
+                color: $light;
+            }
+        }
+    }    
+}
