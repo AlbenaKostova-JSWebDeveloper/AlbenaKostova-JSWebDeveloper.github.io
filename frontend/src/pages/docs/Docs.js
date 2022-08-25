@@ -40,7 +40,7 @@ export default function Docs() {
     
     return (
         <div className='docs-page'>
-            <h3 className="section-title">Docs</h3>
+            <h3 className="section-title">Documents</h3>
             
             <section className="docs grid">
                 <Suspense fallback={<Loading />}>

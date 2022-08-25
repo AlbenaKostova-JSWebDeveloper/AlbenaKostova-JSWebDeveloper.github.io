@@ -10,7 +10,7 @@ export default function Projects() {
             <Link className="link" to="/projects">
                 <h3 className="section-title">Projects</h3>
                 
-                <article className='projects grid'>
+                <article className='projects'>
                     <Suspense fallback={<Loading />}>
                         <div className="image-container">
                             <img src="/assets/images/team-hub.jpeg" alt="screenshot of the website" className="image" />
