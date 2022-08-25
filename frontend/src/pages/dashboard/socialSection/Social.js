@@ -18,8 +18,8 @@ export default function Social() {
                         <i className="icon fab fa-github fa-1x"></i>
                     </a>
                     
-                    <div class="portrait-container">
-                        <div class="portrait"></div>
+                    <div className="portrait-container">
+                        <div className="portrait"></div>
                     </div>
                     
                     <a
