@@ -1,13 +1,24 @@
-import { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
+import { useAdminContext } from '../../hooks/useAdminContext';
 import { useProjectsContext } from '../../hooks/useProjectsContext';
 
 import Loading from '../../components/loading/Loading';
 import Card from '../../components/card/Card';
 import './Projects.scss';
 
+const Button = React.lazy(() => import('../../components/button/Button'));
+const ProjectsForm = React.lazy(() => import('../../pages/admin/admin-panel/ProjectsForm'));
+
+
 export default function Projects() {
+    const {admin} = useAdminContext();
     const {projects, dispatch} = useProjectsContext();
+    
+    async function handleDelete (e) {
+        console.log('delete btn clicked');
+    }
     
     useEffect(() => {
         const fetchProjects = async () => {
@@ -49,8 +60,24 @@ export default function Projects() {
                                 <p className="p app">
                                     <span className="tip">Visit App: </span>
                                     <a href={ project.link } target="_blank" rel="noopener noreferrer" className="url">{ project.title }</a>
-                                </p>                                       
+                                </p>    
                             </div>
+                            {admin && (
+                                <div className="admin-actions">
+                                    <Button>
+                                        <Link to="/projects-form" className="nav-link">
+                                            Edit
+                                            <ProjectsForm project={project} />
+                                        </Link>
+                                    </Button>
+                                    <Button 
+                                        className='logout nav-link' 
+                                        onClick={handleDelete}
+                                    >
+                                        Delete
+                                    </Button>
+                                </div>
+                            )}                                   
                         </article>
                     </Card>
                 ))}

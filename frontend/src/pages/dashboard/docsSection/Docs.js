@@ -13,7 +13,7 @@ export default function Docs() {
                     <i className="icon fa-solid fa-award fa-1x" />                    
                 </div>
                 <div className="icon-container">
-                    <i class="icon fa-solid fa-user fa-1x"></i>
+                    <i className="icon fa-solid fa-user fa-1x"></i>
                 </div>
                 <div className="icon-container">
                     <i className="icon fa-solid fa-file-arrow-down fa-1x" />
