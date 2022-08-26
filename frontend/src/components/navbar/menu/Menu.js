@@ -69,7 +69,9 @@ export default function Menu() {
                         <ul className={`admin ${close ? 'show' : ''}`}>
                             <li className='nav-item'>
                                 <span className="name">{admin.username}</span> &nbsp;
-                                <Button  id="logout" className='logout nav-link' onClick={handleLogout}>Log out</Button>
+                                <Button id="logout" className='logout nav-link' onClick={handleLogout}>
+                                    Log out
+                                </Button>
                             </li>                                                 
                         </ul>                
                         )}                                    
