@@ -39,10 +39,10 @@ function App() {
                             <Route path='/projects' element={<Projects />}/>
                             <Route path='/documents' element={<Docs />}/>
                             <Route path='/contact' element={<Contact />}/>
-                            <Route path='/admin' element={<AdminPanel />}/>
-                            <Route path='/skills-form' element={<SkillsForm />}/>
-                            <Route path='/projects-form' element={<ProjectsForm />}/>
-                            <Route path='/documents-form' element={<DocsForm />}/>
+                            <Route path='/admin' element={admin ? <AdminPanel /> : <Navigate to='/' />}/>
+                            <Route path='/skills-form' element={admin ? <SkillsForm /> : <Navigate to='/' />}/>
+                            <Route path='/projects-form' element={admin ? <ProjectsForm /> : <Navigate to='/' />}/>
+                            <Route path='/documents-form' element={admin ? <DocsForm /> : <Navigate to='/' />}/>
                         </Routes>
                     </Suspense>
                 </main>
