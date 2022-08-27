@@ -72,7 +72,8 @@
                 width: 100%;
                 
                 margin: .1rem;
-                padding: 1rem;
+                padding: .5rem 1rem;
+                border-radius: $base-border-radius;
                 list-style: none;
                 transform: translate3d(0, -100%, 0);
                 transition: all 0.5s ease-out;
@@ -81,51 +82,48 @@
                     transform: translate3d(0, 0, 0);
                 }
                 
-                .nav-item {
-                    transform: translate3d(600px, 0, 0);
+                &.active > a {
+                    color: $light;
+                }
+                
+                .nav-link {
+                    display: inline-block;
+                    position: relative;
+                    font-size: $font-size-sm;
+                    text-transform: uppercase;
+                    color: $primary;
                     transition: all 0.5s ease-out;
         
-                    &.show {
-                        transform: translate3d(0, 0, 0);
+                    &:hover {
+                        color: $secondary;
                     }
-        
-                    &.active > a {
-                        color: $light;
-                    }
-                    
-                    .nav-link {
-                        display: inline-block;
-                        position: relative;
-                        font-size: 30px;
-                        text-transform: uppercase;
-                        padding: 1rem 0;
-                        font-weight: 300;
-                        color: set-text-color($primary);
-                        text-decoration: none;
-                        transition: all 0.5s ease-out;
-            
-                        &:hover {
-                            color: $secondary;
-                        }
-                    }                
-                }
+                }                
             }
         }
         
         .guest .nav-item {
             background: $light; 
-            border-radius: $base-border-radius;
             color: $primary;
         }
         
         .admin .nav-item {
             background: $secondary;
-            width: 100%;            
-            
+            color: $light;            
+            .nav-link {
+                color: $light;
+                &:hover {
+                    color: $primary;
+                }
+            }
+            .name {
+                font-size: $base-font-size;
+                padding-right: 1rem;                 
+            }
             .logout {
                 background: $light;
-                color: $secondary;
-                border: 1px solid lighten($secondary, 35%);                
+                color: $primary;
+                border: 1px solid lighten($secondary, 35%);   
+                padding: 1rem; 
             }
         }
     }    

@@ -9,7 +9,7 @@ const Loading = React.lazy(() => import('../../loading/Loading'));
 const Modal = React.lazy(() => import('../../modal/Modal'));
 const Button = React.lazy(() => import('../../button/Button'));
 
-const items = [
+const guestItems = [
     { path: '/', textContent: 'home' }, 
     { path: '/skills', textContent: 'skills' }, 
     { path: '/projects', textContent: 'projects' }, 
@@ -17,6 +17,9 @@ const items = [
     { path: '/contact', textContent: 'contact' },
     { path: '/signup', textContent: 'sign up' }, 
     { path: '/login', textContent: 'log in' },
+];
+
+const adminItems = [
     { path: '/admin', textContent: 'admin' },
     { path: '/skills-form', textContent: 'skills-form' },
     { path: '/projects-form', textContent: 'projects-form' },
@@ -57,24 +60,31 @@ export default function Menu() {
             <Suspense fallback={<Loading />}>
                 <Modal className={`${close ? '' : 'show'}`}>
                     <nav className="menu-nav">
+                                                
+                        {admin && (
+                            <ul className={`admin ${close ? 'show' : ''}`}>
+                                {!close && adminItems.map((item) => (
+                                    <li key={item.textContent} className="nav-item current" onClick={openPage}>
+                                        <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
+                                    </li>                            
+                                ))}
+                                <li className='nav-item'>
+                                    <span className="name">{admin.username}</span> &nbsp;
+                                    <Button id="logout" className='logout nav-link' onClick={handleLogout}>
+                                        Log out
+                                    </Button>
+                                </li>                                                 
+                            </ul>                
+                        )}                                    
+
                         <ul className={`guest ${close ? 'show' : ''}`}>
-                            {!close && items.map((item) => (
+                            {!close && guestItems.map((item) => (
                                 <li key={item.textContent} className="nav-item current" onClick={openPage}>
                                     <NavLink to={item.path} className="nav-link">{item.textContent}</NavLink>
                                 </li>                            
                             ))}
                         </ul>
                         
-                        {admin && (
-                        <ul className={`admin ${close ? 'show' : ''}`}>
-                            <li className='nav-item'>
-                                <span className="name">{admin.username}</span> &nbsp;
-                                <Button id="logout" className='logout nav-link' onClick={handleLogout}>
-                                    Log out
-                                </Button>
-                            </li>                                                 
-                        </ul>                
-                        )}                                    
                     </nav>
                 </Modal>
             </Suspense>
