@@ -1,13 +1,12 @@
 import React, { Suspense } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import Loading from '../../../components/loading/Loading';
 import './Projects.scss';
 
-export default function Projects() {
+export default function Projects({projects}) {
     return (
         <section className='projects-section'>
-            <Link className="link" to="/projects">
                 <h3 className="section-title">Projects</h3>
                 
                 <article className='projects'>
@@ -23,7 +22,6 @@ export default function Projects() {
                         </div>
                     </Suspense>                         
                 </article>                
-            </Link>
         </section>
     );
 }

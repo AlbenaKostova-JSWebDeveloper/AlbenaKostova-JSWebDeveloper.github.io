@@ -95,7 +95,7 @@ export default function ProjectsForm({project}) {
                 <input type="text" id='image' className='input' onChange={(e) => setImage(e.target.value.trim())} placeholder="image" value={image} />
             </label>
             
-            <Button  className='btn submit' disabled={isLoading}>Submit</Button>
+            <Button onSubmit={handleSubmit} className='submit' disabled={isLoading}>Submit</Button>
             
             {error && <div className='error'>{error}</div>} 
         </form>

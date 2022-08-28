@@ -9,27 +9,17 @@ export default function Social() {
             
             <article className="social ">
                 <Suspense fallback={<div>Loading...</div>}>
-                    <a 
-                        href="https://github.com/malykdim/Portfolio" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className='icon-container'
-                    >
+                    <div className='icon-container'>
                         <i className="icon fab fa-github fa-1x"></i>
-                    </a>
+                    </div>
                     
                     <div className="portrait-container">
                         <div className="portrait"></div>
                     </div>
                     
-                    <a
-                        href="https://www.linkedin.com/in/albenakostova"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className='icon-container'
-                    >
+                    <div className='icon-container'>
                         <i className="icon fab fa-linkedin fa-1x"></i>
-                    </a>                    
+                    </div>                    
                 </Suspense>
             </article>
         </section>

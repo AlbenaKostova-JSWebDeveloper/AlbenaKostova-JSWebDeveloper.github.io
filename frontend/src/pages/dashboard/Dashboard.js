@@ -14,9 +14,8 @@ export default function Dashboard() {
 
     useEffect(() => {
         const fetchProjects = async () => {
-            const res = await fetch('http://localhost:4000/api/projects/62ac8f53d2d373a236ee6b8f');
+            const res = await fetch('http://localhost:4000/api/projects/');
             const json = await res.json();
-            // console.log(json);
             
             if (json.projects) {}
                 
