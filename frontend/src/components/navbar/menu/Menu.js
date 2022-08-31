@@ -44,7 +44,7 @@ export default function Menu() {
         setClose(true);
     }
     
-    function handleLogout () {
+    const handleLogout = () => {
         logout();
         setClose(true);
     }
@@ -70,12 +70,12 @@ export default function Menu() {
                                 ))}
                                 <li className='nav-item'>
                                     <span className="name">{admin.username}</span> &nbsp;
-                                    <Button id="logout" className='logout nav-link' onClick={handleLogout}>
+                                    <Button id="logout" className='logout nav-link' clickHandler={handleLogout.bind(this)}>
                                         Log out
                                     </Button>
                                 </li>                                                 
                             </ul>                
-                        )}                                    
+                        )}
 
                         <ul className={`guest ${close ? 'show' : ''}`}>
                             {!close && guestItems.map((item) => (

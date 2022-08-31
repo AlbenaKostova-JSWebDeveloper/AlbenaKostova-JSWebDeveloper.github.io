@@ -23,6 +23,9 @@ const DocsForm = React.lazy(() => import('./pages/admin/admin-panel/DocsForm.js'
 function App() {
     const { admin } = useAdminContext();
     
+    const IsAdmin = ({ children }) => admin ? children : <Navigate to="/" />;
+    const IsGuest = ({ children }) => !admin ? children : <Navigate to="/" />;
+    
     return (
         <div className="App">
             <BrowserRouter>
@@ -33,16 +36,17 @@ function App() {
                     <Suspense fallback={<Loading />}>
                         <Routes>
                             <Route path='/' element={<Dashboard />}/>
-                            <Route path='/signup' element={admin ? <Navigate to='/' /> : <Signup />}/>
-                            <Route path='/login' element={admin ? <Navigate to='/' /> : <Login />}/>
+                            <Route path='/signup' element={<IsGuest children={<Signup />} />}/>
+                            <Route path='/login' element={<IsGuest children={<Login />} />}/>
                             <Route path='/skills' element={<Skills />}/>
                             <Route path='/projects' element={<Projects />}/>
+                            
                             <Route path='/documents' element={<Docs />}/>
                             <Route path='/contact' element={<Contact />}/>
-                            <Route path='/admin' element={admin ? <AdminPanel /> : <Navigate to='/' />}/>
-                            <Route path='/skills-form' element={admin ? <SkillsForm /> : <Navigate to='/' />}/>
-                            <Route path='/projects-form' element={admin ? <ProjectsForm /> : <Navigate to='/' />}/>
-                            <Route path='/documents-form' element={admin ? <DocsForm /> : <Navigate to='/' />}/>
+                            <Route path='/admin' element={<IsAdmin children={<AdminPanel/>} />}/>
+                            <Route path='/skills-form' element={<IsAdmin children={<SkillsForm/>} />}/>
+                            <Route path='/projects-form' element={<IsAdmin children={<ProjectsForm/>} />}/>
+                            <Route path='/documents-form' element={<IsAdmin children={<DocsForm/>} />}/>
                         </Routes>
                     </Suspense>
                 </main>

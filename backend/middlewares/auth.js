@@ -17,7 +17,7 @@ module.exports = (secret) => (req, res, next) => {
         req.auth = {
             async signup(username, email, password) {
                 const token = await signup(username, email, password);
-                res.cookie(process.env.COOKIE_NAME, token);
+                res.cookie(process.env.COOKIE_NAME, token); // X-Authorization ???
             },
             async login(username, password) {
                 const token = await login(username, password);
