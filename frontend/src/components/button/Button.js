@@ -1,7 +1,7 @@
 import './Button.scss';
 
-export default function Button(props) {
+export default function Button({ clickHandler, className, children}) {
     return (
-        <button className={`btn ${props.className}`}>{props.children}</button>
+        <button className={`btn ${className}`} onClick={clickHandler}>{children}</button>
     );
 }
