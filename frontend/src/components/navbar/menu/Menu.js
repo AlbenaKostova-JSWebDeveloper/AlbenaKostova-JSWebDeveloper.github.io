@@ -46,6 +46,7 @@ export default function Menu() {
     
     const handleLogout = () => {
         logout();
+        localStorage.removeItem('admin');
         setClose(true);
     }
     
