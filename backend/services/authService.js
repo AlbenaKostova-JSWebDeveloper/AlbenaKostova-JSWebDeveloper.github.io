@@ -1,37 +1,28 @@
 const Admin = require('../models/AdminModel');
 
-
 async function createAdmin(username, email, hashedPassword) {
     // check if exists
-    const emailExists = await Admin.findOne({ email });
     const usernameExists = await Admin.findOne({ username });
+    const emailExists = await Admin.findOne({ email });
     
     if (emailExists || usernameExists) {
         const err = new Error('Such user already exists');
         err.status = 409;
         throw err;
-    }
-    
-    
-    // compile data
-    const admin = new Admin({
-        username, 
-        email,
-        hashedPassword,
-    });
-    
-    // save data to DB
-    await admin.save();
-    
+    }        
+
+    // saving admin in the DB
+    const admin = await Admin.create({ username, email, hashedPassword });
+        
     return admin;
 }
 
 async function getUserByUsername(username) {
     const pattern = new RegExp(`^${username}$`, 'i');
-    const user = await Admin.findOne({ username: { $regex: pattern } });
-    console.log(user);
+    const admin = await Admin.findOne({ username: { $regex: pattern } });
+    console.log(admin);
     
-    return user;
+    return admin;
 }
 
 module.exports = {

@@ -1,15 +1,12 @@
 require('dotenv').config();
-
 const jwt = require('jsonwebtoken');
 
-
-function generateToken(userData) {
-    return jwt.sign({
-        _id: userData._id,
-        username: userData.username,
-        roles: userData.roles,
-        permissions: userData.permissions
-    }, process.env.TOKEN_SECRET, { expiresIn: '3d' });
+function generateToken(_id) {
+    return jwt.sign(
+        {_id}, 
+        process.env.TOKEN_SECRET, 
+        { expiresIn: '3d' }
+    );
 }
 
 function parseToken(req, res) {
@@ -39,7 +36,6 @@ function parseError(err) {
         return [err.message];
     }
 }
-
 
 module.exports = { 
     generateToken,

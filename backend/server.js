@@ -17,6 +17,6 @@ async function start() {
     
     /* listen for requests */
     app.listen(process.env.PORT, () => {
-        console.log(`REST API is listenning at http://localhost:${process.env.PORT}`);
+        console.log(`REST API is listenning at ${process.env.HOST}:${process.env.PORT}`);
     });  
 }
