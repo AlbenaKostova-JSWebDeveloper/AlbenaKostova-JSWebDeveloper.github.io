@@ -36,13 +36,14 @@ function App() {
                     <Suspense fallback={<Loading />}>
                         <Routes>
                             <Route path='/' element={<Dashboard />}/>
-                            <Route path='/signup' element={<IsGuest children={<Signup />} />}/>
-                            <Route path='/login' element={<IsGuest children={<Login />} />}/>
                             <Route path='/skills' element={<Skills />}/>
                             <Route path='/projects' element={<Projects />}/>
-                            
                             <Route path='/documents' element={<Docs />}/>
                             <Route path='/contact' element={<Contact />}/>
+                            
+                            <Route path='/signup' element={<IsGuest children={<Signup />} />}/>
+                            <Route path='/login' element={<IsGuest children={<Login />} />}/>
+                            
                             <Route path='/admin' element={<IsAdmin children={<AdminPanel/>} />}/>
                             <Route path='/skills-form' element={<IsAdmin children={<SkillsForm/>} />}/>
                             <Route path='/projects-form' element={<IsAdmin children={<ProjectsForm/>} />}/>
