@@ -1,5 +1,5 @@
 function isAdmin() {
-    return (req, res, next) => {
+    return (req, res, next) => {     
         if (req.user) {
             console.log(req.user);
             next();
@@ -8,6 +8,7 @@ function isAdmin() {
         }
     };
 }
+
 function isGuest() {
     return (req, res, next) => {
         if (!req.user) {
