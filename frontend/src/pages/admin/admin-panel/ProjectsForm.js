@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { useProjectsContext } from '../../../hooks/useProjectsContext';
 import Button from '../../../components/button/Button';
 import  './Form.scss';
+
+const Error = React.lazy(() => import('../../../components/error/Error.js'));
+
 
 export default function ProjectsForm({project}) {
     const { dispatch } = useProjectsContext();
@@ -95,9 +98,9 @@ export default function ProjectsForm({project}) {
                 <input type="text" id='image' className='input' onChange={(e) => setImage(e.target.value.trim())} placeholder="image" value={image} />
             </label>
             
-            <Button onSubmit={handleSubmit} className='submit' disabled={isLoading}>Submit</Button>
+            {error && <Error>{error}</Error>} 
             
-            {error && <div className='error'>{error}</div>} 
+            <Button onSubmit={handleSubmit} className='submit' disabled={isLoading}>Submit</Button>
         </form>
     );
 }

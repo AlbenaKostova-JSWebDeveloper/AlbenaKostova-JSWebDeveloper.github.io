@@ -1,0 +1,10 @@
+@import '../../sass/variables';
+
+.error {
+    padding: 1rem;
+    background: $error;
+    color: $light;
+    opacity: .6;
+    border-radius: $base-border-radius;
+    margin-bottom: 1rem;
+}

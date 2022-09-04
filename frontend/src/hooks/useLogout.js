@@ -7,7 +7,7 @@ export const useLogout = () => {
         // remove token from storage
         localStorage.removeItem('admin');
         
-        // dispatch logout action
+        // update global state
         dispatch({type: 'LOGOUT'});
     }
     

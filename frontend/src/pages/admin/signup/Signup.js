@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { useSignup } from '../../../hooks/useSignup';
 import Button from '../../../components/button/Button';
 import '../Auth.scss';
 
+const Error = React.lazy(() => import('../../../components/error/Error.js'));
 
 export default function Signup() {
     const [username, setUsername] = useState(''); 
@@ -14,7 +15,6 @@ export default function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        console.log(username, email, password);
         await signup(username, email, password);
     };
     
@@ -37,9 +37,10 @@ export default function Signup() {
                 <input type="password" id='password' className='input' onChange={(e) => setPassword(e.target.value)} placeholder="password" value={password} />
             </label>
             
+            {error && <Error>{error}</Error>}
+            
             <Button className="submit" id="signup" disabled={isLoading}>Sign up</Button>
             
-            {error && <div className='error'>{error}</div>}
         </form>
     );
 }
