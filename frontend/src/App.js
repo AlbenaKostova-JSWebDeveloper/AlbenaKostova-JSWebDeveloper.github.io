@@ -13,6 +13,7 @@ const Login = React.lazy(() => import('./pages/admin/login/Login.js'));
 const Dashboard = React.lazy(() => import('./pages/dashboard/Dashboard.js'));
 const Skills = React.lazy(() => import('./pages/skills/Skills.js'));
 const Projects = React.lazy(() => import('./pages/projects/Projects.js'));
+const Details = React.lazy(() => import('./pages/details/Details.js'));
 const Docs = React.lazy(() => import('./pages/docs/Docs.js'));
 const Contact = React.lazy(() => import('./pages/contact/Contact.js'));
 const AdminPanel = React.lazy(() => import('./pages/admin/admin-panel/AdminPanel.js'));
@@ -38,6 +39,7 @@ function App() {
                             <Route path='/' element={<Dashboard />}/>
                             <Route path='/skills' element={<Skills />}/>
                             <Route path='/projects' element={<Projects />}/>
+                            <Route path='/projects/:id' element={<Details/>}/>
                             <Route path='/documents' element={<Docs />}/>
                             <Route path='/contact' element={<Contact />}/>
                             
@@ -47,6 +49,7 @@ function App() {
                             <Route path='/admin' element={<IsAdmin children={<AdminPanel/>} />}/>
                             <Route path='/skills-form' element={<IsAdmin children={<SkillsForm/>} />}/>
                             <Route path='/projects-form' element={<IsAdmin children={<ProjectsForm/>} />}/>
+                            <Route path='/projects-form/:id' element={<IsAdmin children={<ProjectsForm/>} />}/>                            
                             <Route path='/documents-form' element={<IsAdmin children={<DocsForm/>} />}/>
                         </Routes>
                     </Suspense>
