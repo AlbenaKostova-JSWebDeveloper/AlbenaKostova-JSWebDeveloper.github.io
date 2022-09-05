@@ -109,6 +109,11 @@
                 grid-column: 2 / 12;
                 grid-row: 4;
             }
+            .admin-actions {
+                .nav-link {
+                    color: $secondary;
+                }
+            }
         }
         
         @include lg {
