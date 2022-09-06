@@ -47,24 +47,6 @@ export default function Projects() {
                                             { project.technologies.join(' | ') }
                                         </p>
                                     </div>
-                                    {/* {admin && (
-                                        <div className="admin-actions">
-                                            <Button>
-                                                <Link 
-                                                    to={`/projects-form/${project._id}`} 
-                                                    className='nav-link'
-                                                >
-                                                    Edit                                            
-                                                </Link>
-                                            </Button>
-                                            <Button 
-                                                className='logout nav-link' 
-                                                onClick={handleDelete}
-                                            >
-                                                Delete
-                                            </Button>
-                                        </div>
-                                    )}                                    */}
                                 </article>
                             </Card>
                         </Link>

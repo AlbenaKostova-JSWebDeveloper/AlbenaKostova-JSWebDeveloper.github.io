@@ -24,12 +24,12 @@ export default function Details() {
         <div className='details-page'>
             <h3 className="section-title">Details - {data && data.title}</h3>
             
-            <section className="projects">
+            <section className="details">
                 <Suspense fallback={<Loading />}>
                     {isPending && <Loading />}
                     {data && (
                         <Card project={data}>
-                            <article className='project-card'>
+                            <article className='details-card'>
                                 <div className="link">
                                     <header className="image-container">
                                         <img src={ data.image } alt="screenshot of the website" className="image" />
