@@ -36,7 +36,6 @@
                     }
                 }
                 .p {
-                    padding: .2rem 1.2rem;
                     margin: 0;
                     font-size: .7em;
                     line-height: 1.2em;
@@ -76,12 +75,14 @@
                     display: flex;
                     justify-content: center;
                     gap: 1.1rem;
-                    margin-bottom: 1.1rem;                    
+                    margin-bottom: 1.1rem;             
                     
                     
                     .nav-link {
                         background-color: $primary;
                         color: $light;
+                        padding: $base-padding $base-padding * 1.5;
+                        font-size: 0.8em;
                     }
                     .repo, .app {
                         .tip {
@@ -110,6 +111,9 @@
                 .nav-link {
                     background-color: $secondary;
                     color: $light;
+                    padding: $base-padding $base-padding * 1.5;
+                    font-size: 0.8em;
+                    border-radius: $base-border-radius;
                 }
             }
         }

@@ -41,33 +41,25 @@ export default function Details() {
                                         { data.technologies.join(' | ') }
                                     </p>
                                     <div className="cta">
-                                        <Button className="p details">                                    
-                                            <a href={ data.details } target="_blank" rel="noopener noreferrer" className="nav-link">
-                                                <span>Details</span>
-                                            </a>
-                                        </Button>
-                                        <Button className="p repo">                                    
-                                            <a href={ data.repo } target="_blank" rel="noopener noreferrer" className="nav-link">
-                                                <span>View code</span>
-                                            </a>
-                                        </Button>
-                                        <Button className="p app">                                    
-                                            <a href={ data.link } target="_blank" rel="noopener noreferrer" className="nav-link">
-                                                <span>Visit app</span>
-                                            </a>
-                                        </Button>  
+                                        <a href={ data.details } target="_blank" rel="noopener noreferrer" className="btn nav-link">
+                                            Details
+                                        </a>
+                                        <a href={ data.repo } target="_blank" rel="noopener noreferrer" className="btn nav-link">
+                                            View code
+                                        </a>
+                                        <a href={ data.link } target="_blank" rel="noopener noreferrer" className="btn nav-link">
+                                            Visit app
+                                        </a>
                                     </div>
                                 </div>
                                 {admin && (
                                     <div className="admin-actions">
-                                        <Button>
-                                            <Link 
-                                                to={`/projects-form/${data._id}`} 
-                                                className='nav-link'
-                                            >
-                                                Edit                                            
-                                            </Link>
-                                        </Button>
+                                        <Link 
+                                            to={`/projects-form/${data._id}`} 
+                                            className='nav-link'
+                                        >
+                                            Edit                                            
+                                        </Link>
                                         <Button 
                                             className='logout nav-link' 
                                             onClick={handleDelete}
