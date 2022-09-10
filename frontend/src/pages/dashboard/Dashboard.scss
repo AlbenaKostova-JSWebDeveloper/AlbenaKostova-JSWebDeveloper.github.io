@@ -1,11 +1,19 @@
 @import '../../sass/_functions';
 @import '../../sass/_variables';
+@import '../../sass/_breakpoints';
 
 .dashboard {
     padding: 0 $base-padding * 2;
     
     .section-title {
         @include section-title;        
+    }
+    @include md {
+        max-width: 720px;  
+        margin: 0 auto;      
+    }
+    @include md {
+        max-width: 960px;  
     }
     
 }
